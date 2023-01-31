@@ -26,7 +26,7 @@ const SongData = () => {
             id="albumImage"
             src={albumImage}
             className="img-fluid mt-3 shadow-sm border border-danger border-4"
-            alt="Album image"
+            alt="Album"
           />
         </div>
       </div>

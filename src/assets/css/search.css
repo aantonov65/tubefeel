@@ -1,15 +1,7 @@
 /* Start of Form search section */
 
-.search .container-fluid {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 59, 59, 1) 20%,
-    rgba(220, 53, 69, 1) 100%
-  );
-}
-
 .search .container-fluid label {
-  font-size: 2.75rem;
+  font-size: 2.5rem;
 }
 
 .search .container-fluid p {
@@ -102,6 +94,8 @@
   width: 14rem;
   font-size: 1.25rem;
   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+  display: flex;
+  justify-content: center;
 }
 
 /* End of Selected Video section */

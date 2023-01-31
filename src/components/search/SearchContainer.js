@@ -74,7 +74,7 @@ const SearchContainer = () => {
           <input
             value="Търси"
             type="submit"
-            className="btn btn-light text-danger mx-auto my-4"
+            className="search-button btn btn-light text-danger mx-auto my-4"
           />
         </form>
       </div>

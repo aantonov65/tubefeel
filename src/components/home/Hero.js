@@ -20,7 +20,10 @@ const Hero = () => {
           сървър автоматично обновява и записва историята на слушаните песни на
           потребителя.
         </p>
-        <Button className="mt-2 p-2" variant="danger" href="/login">
+        <Button
+          className="home-button mt-2 py-2"
+          variant="danger"
+          href="/login">
           Влез
         </Button>
       </div>

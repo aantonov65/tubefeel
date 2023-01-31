@@ -17,8 +17,8 @@
   color: #737373;
 }
 
-.home .hero a[role="button"] {
-  width: 12rem;
+.home .hero .home-button {
+  width: 14rem;
   font-size: 1.25rem;
   box-shadow: 0 0 0 0 rgba(255, 82, 82, 1);
   animation: pulse-red 2s infinite;
