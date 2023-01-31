@@ -1,0 +1,44 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+
+/* Statistics Table */
+
+.table-container {
+  overflow-x: auto;
+}
+
+.table-container table {
+  border-collapse: collapse;
+  margin: 25px auto;
+  width: 70%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  overflow-x: auto;
+}
+
+.table-container table thead tr {
+  background-color: rgba(220, 53, 69, 1);
+  color: #ffffff;
+  text-align: left;
+}
+
+.table-container table th,
+.table-container table td {
+  padding: 12px 15px;
+}
+
+.table-container table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.table-container table tbody tr:nth-of-type(even) {
+  background-color: rgba(248, 90, 106, 0.1);
+}
+
+.table-container table tbody tr:last-of-type {
+  border-bottom: 2px solid rgba(220, 53, 69, 1);
+}

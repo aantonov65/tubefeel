@@ -1,0 +1,118 @@
+/* Start of Form search section */
+
+.search .container-fluid {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 59, 59, 1) 20%,
+    rgba(220, 53, 69, 1) 100%
+  );
+}
+
+.search .container-fluid label {
+  font-size: 2.75rem;
+}
+
+.search .container-fluid p {
+  font-size: 1.25rem;
+}
+
+.search .container-fluid form {
+  font-size: 1.6rem;
+}
+
+.search .container-fluid form input[type="text"] {
+  border-radius: 25px;
+  border: 2px solid rgb(200, 199, 199);
+  width: 75%;
+}
+
+.search .container-fluid form input[type="text"]:focus {
+  outline: 0;
+}
+
+.search .container-fluid form input[type="submit"] {
+  width: 14rem;
+  font-size: 1.25rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+::placeholder {
+  opacity: 1;
+  color: rgb(212, 212, 211);
+  font-size: 1.25rem;
+}
+
+/* End of Form search section */
+
+/* Start of Video Results section */
+
+.search .container-fluid .video-row {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.search .container-fluid .video-row .col {
+  padding: 1.5rem;
+  position: relative;
+}
+
+.search .container-fluid .details-row {
+  height: 500px;
+  margin: 0;
+}
+
+/* End of Video Results section */
+
+/* Start of Selected Video section */
+
+.search .container-fluid .details-video-container::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 0;
+  background-color: #f8f9fa;
+  border-top: 4px solid rgba(220, 53, 69, 1);
+  border-right: 4px solid rgba(220, 53, 69, 1);
+  width: 70px;
+  height: 70px;
+  top: 10%;
+  right: 0;
+}
+
+.search .container-fluid .details-video-container::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 0;
+  background-color: #f8f9fa;
+  border-bottom: 4px solid rgba(220, 53, 69, 1);
+  border-left: 4px solid rgba(220, 53, 69, 1);
+  width: 70px;
+  height: 70px;
+  bottom: 10%;
+  left: 0;
+}
+
+.search .container-fluid .details-video-container iframe {
+  z-index: 1;
+}
+
+.search .container-fluid .details-info-container button {
+  width: 14rem;
+  font-size: 1.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+}
+
+/* End of Selected Video section */
+
+/*Media queries*/
+
+@media screen and (min-width: 768px) {
+  .search .container-fluid .details-info-container {
+    margin-top: 4.2rem;
+  }
+  .search .container-fluid form input[type="text"] {
+    width: 50%;
+  }
+}
