@@ -6,7 +6,7 @@ const Info = () => {
   return (
     <Col className="col-12 col-md-6 col-lg-3">
       <p className="h4">
-        <img width={55} src={logo} alt="logo" className="me-2" />
+        <img width={55} src={logo} alt="logo" title="logo" className="me-2" />
         TubeFeel
       </p>
       <p>
@@ -16,7 +16,7 @@ const Info = () => {
         Симеон Теремков<br></br>
         <a
           href="https://pgi-pernik.bg-schools.com/"
-          className="text-decoration-none text-white footer__link"
+          className="text-decoration-none text-white"
           target="_blank"
         >
           ПГ по икономика - Перник

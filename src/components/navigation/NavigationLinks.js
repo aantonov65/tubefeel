@@ -10,8 +10,10 @@ const NavigationLinks = () => {
       <Nav.Link href="/songs-numbers">Песните в цифри</Nav.Link>
       <NavDropdown title="Статистики" id="collasible-nav-dropdown">
         <NavDropdown.Item href="/genres">Жанрове</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Артисти</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Последно слушани</NavDropdown.Item>
+        <NavDropdown.Item href="/artists">Артисти</NavDropdown.Item>
+        <NavDropdown.Item href="/last-listened">
+          Последно слушани
+        </NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item href="/tubefeel-top-ten">
           TubeFeel Топ 10

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import youtubeApi from "../../api/youtube";
 import VideoDetails from "./VideoDetails";
 import VideoList from "./VideoList";
@@ -49,30 +50,34 @@ const SearchContainer = () => {
   };
 
   return (
-    <div className="search__container text-white">
-      <form className="search__form" onSubmit={handleSubmit}>
-        <div className="d-flex flex-column align-center text-center pb-5">
-          <label className="search__title h1 mt-5 mb-0">
-            Потърсете име на песен
-          </label>
-          <p className="search__desc">
-            Потърсете и добавете песни към вашата история, за да видите
-            статистики за тях
-          </p>
+    <Container fluid className="text-white g-0">
+      <div className="pb-5 text-center">
+        <label htmlFor="search" className="search__title h1 mt-5 mb-0">
+          Потърсете име на песен
+        </label>
+        <p>
+          Потърсете и добавете песни към вашата история, за да видите статистики
+          за тях
+        </p>
+        <form
+          className="d-flex flex-column align-center text-center"
+          onSubmit={handleSubmit}>
           <input
-            className="search__input text-center mx-auto"
+            className="text-center mx-auto"
             value={title}
             onChange={handleSearchChange}
             type="text"
             placeholder="Въведете име на песен"
+            name="search"
+            id="search"
           />
           <input
             value="Търси"
             type="submit"
-            className="btn btn-search btn-light text-danger mx-auto my-4"
+            className="btn btn-light text-danger mx-auto my-4"
           />
-        </div>
-      </form>
+        </form>
+      </div>
       <VideoDetails
         videoId={videoData.selectedVideoId}
         title={videoData.selectedVideoTitle}
@@ -83,7 +88,7 @@ const SearchContainer = () => {
         onVideoSelected={onVideoSelected}
         data={videoData.videoMetaInfo}
       />
-    </div>
+    </Container>
   );
 };
 

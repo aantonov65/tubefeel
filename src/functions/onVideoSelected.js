@@ -1,13 +1,12 @@
-// import React from "react";
+import React from "react";
+import youtubeApi from "../api/youtube";
 
-// const onVideoSelected = (videoId, title, desc, channel) => {
-//   setVideoData({
-//     ...videoData,
-//     selectedVideoId: videoId,
-//     selectedVideoTitle: title,
-//     selectedVideoDesc: desc,
-//     selectedVideoChannel: channel,
-//   });
-// };
+const handleSearch = async (keyword) => {
+  const response = await youtubeApi.get("/search", {
+    params: {
+      q: keyword,
+    },
+  });
+};
 
-// export default onVideoSelected;
+export default handleSearch;

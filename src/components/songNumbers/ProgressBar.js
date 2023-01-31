@@ -2,9 +2,9 @@ import React from "react";
 
 const ProgressBar = ({ title, percentage }) => {
   return (
-    <div className="progress_container">
-      <div className="progress_text">
-        <span className="title me-2">{title}</span>
+    <div>
+      <div>
+        <span className="me-2">{title}</span>
         <span id="dancePercent" className="precent text-danger">
           {percentage}%
         </span>

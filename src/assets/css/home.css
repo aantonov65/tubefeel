@@ -1,0 +1,77 @@
+/* Start of Hero section */
+
+.home .hero span {
+  font-weight: 700;
+  background-color: #dc3545;
+  background-image: linear-gradient(45deg, #fc7171, #ff3b3b, #dc3545);
+  background-size: 100%;
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.home .hero p {
+  color: #737373;
+}
+
+.home .hero a[role="button"] {
+  width: 12rem;
+  font-size: 1.25rem;
+  box-shadow: 0 0 0 0 rgba(255, 82, 82, 1);
+  animation: pulse-red 2s infinite;
+}
+
+.home .hero .shape-container {
+  width: 1100px;
+  z-index: -1;
+  position: absolute;
+  top: -20rem;
+  right: -25rem;
+}
+
+@keyframes pulse-red {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+  }
+}
+
+/* End of Hero section */
+
+/* Start of Stats section */
+
+.home .stats {
+  border-top: 0.125rem solid rgb(0 0 0 / 8%);
+}
+
+.home .stats span:nth-of-type(2) {
+  box-shadow: rgba(240, 46, 46, 0.4) 5px 5px, rgba(240, 46, 46, 0.2) 9px 9px;
+}
+
+/* End of Stats section */
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .home .hero .shape-container {
+    right: -34rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .blob {
+    right: -42rem;
+  }
+}
