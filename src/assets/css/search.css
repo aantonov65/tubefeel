@@ -22,7 +22,7 @@
   outline: 0;
 }
 
-.search .container-fluid form input[type="submit"] {
+.search .container-fluid form .search-button {
   width: 14rem;
   font-size: 1.25rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
