@@ -26,12 +26,13 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4",
+    "react-table": "^7.8.0",
     "stream": "^0.0.2",
     "timers": "^0.1.1",
     "tls": "^0.0.1",
     "url": "^0.11.0",
-    "util": "^0.12.5",
-    "web-vitals": "^2.1.4"
+    "util": "^0.12.5"
   },
   "scripts": {
     "start": "react-scripts start",

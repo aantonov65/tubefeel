@@ -1,10 +1,6 @@
 import React from "react";
 import { Col } from "react-bootstrap";
 
-// const selectVideo = (videoIdObj, onVideoSelected) => {
-//   onVideoSelected(videoIdObj.videoId);
-// };
-
 const getCss = (imageUrl) => {
   const styles = {
     backgroundImage: `url(${imageUrl})`,
@@ -13,8 +9,7 @@ const getCss = (imageUrl) => {
     height: "180px",
     position: "relative",
     borderRadius: "10px",
-    boxShadow:
-      "rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset",
+    boxShadow: "rgba(106, 25, 25, 0.4) 5px 5px, rgba(138, 35, 35, 0.2) 9px 9px",
   };
   return styles;
 };
@@ -25,7 +20,7 @@ const constructVideoTitles = (videosData, onVideoSelected) => {
       return;
     }
     return (
-      <Col className="video__card" key={index}>
+      <Col key={index}>
         <div
           style={getCss(snippet.thumbnails.high.url)}
           onClick={() => {
@@ -35,6 +30,11 @@ const constructVideoTitles = (videosData, onVideoSelected) => {
               snippet.description,
               snippet.channelTitle
             );
+            window.scrollTo({
+              left: 0,
+              top: 250,
+              behavior: "smooth",
+            });
           }}
         ></div>
         <div className="p-2">

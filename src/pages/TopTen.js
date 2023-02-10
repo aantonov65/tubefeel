@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import React from "react";
+import Footer from "../components/footer/Footer";
 import Header from "../components/Header";
-import BarChart from "../components/myTopTen/BarChart";
-import { baseURL } from "../database/config";
+import Navigation from "../components/navigation/Navigation";
+import ChartContainer from "../components/topTen/ChartContainer";
+import Table from "../components/topTen/Table";
 import axios from "axios";
 
 const TopTen = () => {
@@ -57,21 +58,18 @@ const TopTen = () => {
   });
 
   return (
-    <section>
-      <Header
-        title="Искате ли да узнаете Топ 10 на всички потребители?"
-        desc="Тук може да видите Топ 10 на песните, слушани от всички потребители в системата."
-      />
-      <Container>
-        <Row>
-          <Col>
-            <div className="mt-5 chart__container-bar">
-              <BarChart chartData={userData} />
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </section>
+    <>
+      <Navigation />
+      <div className="topTen">
+        <Header
+          title="Искате ли да узнаете Топ 10 на всички потребители?"
+          desc="Тук може да видите Топ 10 на песните, слушани от всички потребители в системата."
+        />
+        <ChartContainer />
+        <Table />
+      </div>
+      <Footer />
+    </>
   );
 };
 

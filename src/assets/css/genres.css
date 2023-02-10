@@ -1,0 +1,12 @@
+.genres .container .chart-container {
+  margin: auto;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 992px) {
+  .genres .container .chart-container {
+    height: 500px;
+  }
+}
