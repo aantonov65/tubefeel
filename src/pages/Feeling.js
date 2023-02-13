@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import Header from "../components/Header";
-import LineChart from "../components/feeling/LineChart";
-import { UserData } from "../components/UserData";
-import Table from "../components/feeling/Table";
-import "../assets/css/feeling.css";
-import Navigation from "../components/navigation/Navigation";
-import Footer from "../components/footer/Footer";
 import Definition from "../components/feeling/Definition";
+import LineChart from "../components/feeling/LineChart";
+import Footer from "../components/footer/Footer";
+import Header from "../components/Header";
+import Navigation from "../components/navigation/Navigation";
+import { UserData } from "../components/UserData";
 
-const MonthFeeling = () => {
+const Feeling = () => {
   const [userData, setUserData] = useState({
     labels: UserData.map((data) => data.song),
     datasets: [
@@ -28,21 +26,20 @@ const MonthFeeling = () => {
   });
   return (
     <>
-      <Navigation />
       <div className="feeling">
+        <Navigation />
         <Header
-          title="Какво е Вашето настроение този месец?"
-          desc="Тук може да разгледате градацията за текущия месец."
+          title="Какво е Вашето настроение напоследък?"
+          desc="Тук може да разгледате градацията на вашето настроение от последните 50 слушани от Вас песни."
         />
         <Definition />
         <div className="chart-container">
           <LineChart chartData={userData} />
         </div>
-        <Table />
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };
 
-export default MonthFeeling;
+export default Feeling;

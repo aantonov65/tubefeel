@@ -1,5 +1,6 @@
 import React from "react";
 import { Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Shortcuts = () => {
   return (
@@ -7,24 +8,19 @@ const Shortcuts = () => {
       <h4 className="m-0 mt-2">Бързи връзки</h4>
       <ul className="list-unstyled">
         <li>
-          <a href="#" className="text-decoration-none text-white">
+          <Link className="text-decoration-none text-white" to="/feeling">
             Настроение от последните 50 песни
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="text-decoration-none text-white">
-            Препоръчано от TubeFeel
-          </a>
-        </li>
-        <li>
-          <a href="#" className="text-decoration-none text-white">
+          <Link className="text-decoration-none text-white" to="/days-feeling">
             Средно чувство по дни
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="text-decoration-none text-white">
+          <Link className="text-decoration-none text-white" to="/positivity">
             Подобрете настроението си
-          </a>
+          </Link>
         </li>
       </ul>
     </Col>

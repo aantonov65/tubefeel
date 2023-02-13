@@ -1,10 +1,7 @@
-// import Navigation from "./components/navigation/Navigation";
-// import Footer from "./components/footer/Footer";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import SongNumbers from "./pages/SongNumbers";
-import Genres from "./pages/Genres";
 import MyTopTen from "./pages/MyTopTen";
 import TopTen from "./pages/TopTen";
 import TodayFeeling from "./pages/TodayFeeling";
@@ -16,6 +13,9 @@ import Artists from "./pages/Artists";
 import LastListened from "./pages/LastListened";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Feeling from "./pages/Feeling";
+import DaysFeeling from "./pages/DaysFeeling";
+import Positivity from "./pages/Positivity";
 
 function App() {
   return (
@@ -28,11 +28,13 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/songs-numbers" element={<SongNumbers />} />
-        <Route path="/genres" element={<Genres />} />
         <Route path="/artists" element={<Artists />} />
         <Route path="/last-listened" element={<LastListened />} />
         <Route path="/my-top-ten" element={<MyTopTen />} />
         <Route path="/tubefeel-top-ten" element={<TopTen />} />
+        <Route path="/positivity" element={<Positivity />} />
+        <Route path="/feeling" element={<Feeling />} />
+        <Route path="/days-feeling" element={<DaysFeeling />} />
         <Route path="/today-feeling" element={<TodayFeeling />} />
         <Route path="/week-feeling" element={<WeekFeeling />} />
         <Route path="/month-feeling" element={<MonthFeeling />} />
