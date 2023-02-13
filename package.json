@@ -2,6 +2,7 @@
   "name": "tubefeel",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tubefeel.noit.eu/",
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -25,14 +26,14 @@
     "react-chartjs-2": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.1",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4",
+    "react-scripts": "^5.0.1",
     "react-table": "^7.8.0",
     "stream": "^0.0.2",
     "timers": "^0.1.1",
     "tls": "^0.0.1",
     "url": "^0.11.0",
-    "util": "^0.12.5"
+    "util": "^0.12.5",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

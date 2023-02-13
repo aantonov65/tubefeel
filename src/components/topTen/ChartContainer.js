@@ -1,20 +1,42 @@
 import React, { useState } from "react";
 import BarChart from "./BarChart";
-import { UserData } from "../UserData";
+import { baseURL } from "../../database/config";
+import axios from "axios";
 
 const ChartContainer = () => {
-  let arrayOfData = UserData.map((data) => data.timesListened);
-  //Sorting the received array
-  let sortedArrayOfData = arrayOfData.sort(function (a, b) {
-    return b - a;
-  });
+    let names = [];
+    let listens = [];
+    axios.get(baseURL + "/tracks/top10/")
+        .then(res => {
+            res.data.map((track) => {
+                names.push(track.name);
+                listens.push(track.listens);
+            });
+            setUserData({
+                labels: names,
+                datasets: [
+                    {
+                        label: "Слушания",
+                        data: listens,
+                        backgroundColor: "#DC3545",
+                        hoverBackgroundColor: "#bb2d3b",
+                    },
+                ],
+                options: [
+                    {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                    },
+                ],
+            });
+        });
 
   const [userData, setUserData] = useState({
-    labels: UserData.map((data) => data.song),
+    labels: names,
     datasets: [
       {
         label: "Слушания",
-        data: sortedArrayOfData,
+        data: listens,
         backgroundColor: "#DC3545",
         hoverBackgroundColor: "#bb2d3b",
       },
