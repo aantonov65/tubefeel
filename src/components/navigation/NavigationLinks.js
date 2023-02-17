@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const NavigationLinks = () => {
   return (
-    <Nav className="mx-auto my-2 my-lg-0 d-flex gap-4">
+    <Nav className="mx-auto my-2 my-lg-0 d-flex gap-3">
       <Nav.Link as={Link} to="/">
         Начало
       </Nav.Link>
@@ -19,8 +19,8 @@ const NavigationLinks = () => {
         <NavDropdown.Item as={Link} to="/artists">
           Артисти
         </NavDropdown.Item>
-        <NavDropdown.Item as={Link} to="/last-listened">
-          Последно слушани
+        <NavDropdown.Item as={Link} to="/history">
+          Вашата История
         </NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item as={Link} to="/tubefeel-top-ten">

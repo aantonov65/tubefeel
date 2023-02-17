@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { useState } from "react";
 import NavigationLinks from "./NavigationLinks";
 import "../../assets/css/nav.css";
+import { Button, Nav } from "react-bootstrap";
 
 const Navigation = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -22,8 +23,15 @@ const Navigation = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           {isLoggedIn ? <NavigationLinks /> : null}
+          <Nav>
+            <Button
+              className="py-2 px-3 px-xxl-5"
+              variant="danger"
+              onClick={"function"}>
+              Излезте
+            </Button>
+          </Nav>
         </Navbar.Collapse>
-        {/* <h3 className="m-0">User</h3> */}
       </Container>
     </Navbar>
   );

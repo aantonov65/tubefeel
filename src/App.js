@@ -10,12 +10,12 @@ import MonthFeeling from "./pages/MonthFeeling";
 import YearFeeling from "./pages/YearFeeling";
 import Search from "./pages/Search";
 import Artists from "./pages/Artists";
-import LastListened from "./pages/LastListened";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Feeling from "./pages/Feeling";
 import DaysFeeling from "./pages/DaysFeeling";
 import Positivity from "./pages/Positivity";
+import History from "./pages/History";
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/songs-numbers" element={<SongNumbers />} />
         <Route path="/artists" element={<Artists />} />
-        <Route path="/last-listened" element={<LastListened />} />
+        <Route path="/history" element={<History />} />
         <Route path="/my-top-ten" element={<MyTopTen />} />
         <Route path="/tubefeel-top-ten" element={<TopTen />} />
         <Route path="/positivity" element={<Positivity />} />

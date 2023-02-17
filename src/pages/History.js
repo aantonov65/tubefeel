@@ -4,14 +4,14 @@ import Header from "../components/Header";
 import Table from "../components/lastListened/Table";
 import Navigation from "../components/navigation/Navigation";
 
-const LastListened = () => {
+const History = () => {
   return (
     <>
       <Navigation />
       <div className="last-listened">
         <Header
-          title="Искате ли да знаете какво последно сте слушали?"
-          desc="Тук може да видите последните слушани от Вас песни и техните характеристики."
+          title="Искате ли да знаете какво сте гледали последно?"
+          desc="Тук може да видите добавените от вас песни и техните характеристики."
         />
         <Table />
       </div>
@@ -20,4 +20,4 @@ const LastListened = () => {
   );
 };
 
-export default LastListened;
+export default History;
