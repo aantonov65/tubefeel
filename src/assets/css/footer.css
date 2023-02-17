@@ -1,0 +1,7 @@
+footer .container a {
+  transition: 300ms all;
+}
+
+footer .container a:hover {
+  color: rgba(220, 53, 69, 1) !important;
+}

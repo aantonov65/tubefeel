@@ -31,8 +31,8 @@ const TodayFeeling = () => {
       <Navigation />
       <div className="feeling">
         <Header
-          title="Какво е Вашето настроение днес?"
-          desc="Тук може да разгледате градацията на Вашето настроение за днешния ден."
+          title="Какво е настроението Ви днес?"
+          desc="Тук може да разгледате градацията на настроението Ви за днешния ден."
         />
         <Definition />
         <div className="chart-container">

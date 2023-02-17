@@ -5,6 +5,11 @@
   font-family: "Yanone Kaffeesatz", sans-serif;
 }
 
+::selection {
+  color: #fff;
+  background-color: rgba(220, 53, 69, 1);
+}
+
 h1 {
   font-size: 2.5rem;
 }

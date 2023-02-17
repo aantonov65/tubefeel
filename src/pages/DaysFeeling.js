@@ -29,8 +29,8 @@ const DaysFeeling = () => {
       <div className="feeling">
         <Navigation />
         <Header
-          title="Какво е било Вашето настроение по дни?"
-          desc="Тук може да разгледате градацията на Вашето настроение по дни."
+          title="Какво е било настроението Ви по дни?"
+          desc="Тук може да разгледате градацията на настроението Ви по дни."
         />
         <Definition />
         <div className="chart-container">

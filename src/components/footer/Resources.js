@@ -8,38 +8,26 @@ const Resources = () => {
       <ul className="list-unstyled">
         <li>
           <a
-            href="#"
+            href="https://www.youtube.com/"
             target="_blank"
-            className="text-decoration-none text-secondary"
-          >
+            className="text-decoration-none text-white">
             Youtube
           </a>
         </li>
         <li>
           <a
-            href="#"
+            href="https://developers.google.com/youtube/v3"
             target="_blank"
-            className="text-decoration-none text-secondary"
-          >
-            Youtube
+            className="text-decoration-none text-white">
+            Youtube API
           </a>
         </li>
         <li>
           <a
-            href="#"
+            href="https://developer.spotify.com/documentation/web-api/"
             target="_blank"
-            className="text-decoration-none text-secondary"
-          >
-            Youtube
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            target="_blank"
-            className="text-decoration-none text-secondary"
-          >
-            Youtube
+            className="text-decoration-none text-white">
+            Spotify Web API
           </a>
         </li>
       </ul>

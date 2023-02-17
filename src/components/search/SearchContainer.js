@@ -72,7 +72,7 @@ const SearchContainer = () => {
             id="search"
           />
           <input
-            value="Търси"
+            value="Търсене"
             type="submit"
             className="search-button btn btn-light text-danger mx-auto my-4"
           />

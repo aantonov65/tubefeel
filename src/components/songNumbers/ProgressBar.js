@@ -2,7 +2,7 @@ import React from "react";
 
 const ProgressBar = ({ title, percentage }) => {
   return (
-    <div>
+    <div className="h5">
       <div>
         <span className="me-2">{title}</span>
         <span id="dancePercent" className="precent text-danger">
@@ -18,8 +18,7 @@ const ProgressBar = ({ title, percentage }) => {
           }}
           role="progressbar"
           aria-valuemin="0"
-          aria-valuemax="100"
-        ></div>
+          aria-valuemax="100"></div>
       </div>
     </div>
   );

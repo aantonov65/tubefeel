@@ -4,6 +4,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import Info from "./Info";
 import Shortcuts from "./Shortcuts";
 import Resources from "./Resources";
+import "../../assets/css/footer.css";
 
 const Footer = () => {
   return (

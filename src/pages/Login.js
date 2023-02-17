@@ -20,7 +20,7 @@ const Login = () => {
           <Form.Control type="password" placeholder="Парола" />
         </Form.Group>
         <Button className="btn mx-auto mt-4" variant="danger" type="submit">
-          Влез
+          Влизане
         </Button>
         <p className="mt-3 mb-0 mx-auto">
           Нямате профил?
