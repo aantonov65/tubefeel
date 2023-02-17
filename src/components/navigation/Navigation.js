@@ -28,7 +28,7 @@ const Navigation = () => {
               className="py-2 px-3 px-xxl-5"
               variant="danger"
               onClick={"function"}>
-              Излезте
+              Излизане
             </Button>
           </Nav>
         </Navbar.Collapse>
