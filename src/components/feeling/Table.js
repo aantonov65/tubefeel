@@ -1,21 +1,40 @@
-import React, { useMemo } from "react";
-import "../../assets/css/genres.css";
-import mockData from "../mockData/MOCK_DATA.json";
+import React, { useState, useMemo, useEffect, useContext } from "react";
+import UserContext from "../../api/userContext";
 import { useTable } from "react-table";
+import { baseURL } from "../../api/config";
+import axios from "axios";
 
 const Table = () => {
-  const data = useMemo(() => mockData, []);
-  const columns = useMemo(
-    () => [
-      { Header: "Място", accessor: "place" },
-      { Header: "Жанр", accessor: "genre" },
-      { Header: "Измерител за слушане", accessor: "measurement" },
-    ],
-    []
-  );
+    const [tracks, setTracks] = useState([]);
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data });
+    const { userID } = useContext(UserContext);
+
+    useEffect(() => {
+        axios.get(baseURL + "/users/history/today/" + userID)
+            .then((res) => {
+                const data = res.data.map((track, index) => {
+                    return {
+                        ...track,
+                        rank: index + 1,
+                    };
+                });
+                setTracks(data);
+            })
+            .catch((err) => console.log(err));
+    }, []);
+
+    const columns = useMemo(
+        () => [
+            { Header: "Място", accessor: "rank" },
+            { Header: "Име", accessor: "name" },
+            { Header: "Позитивност", accessor: "valence" },
+            { Header: "Дата слушана", accessor: "date" },
+        ],
+        []
+    );
+
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+        useTable({ columns, data: tracks });
 
   return (
     <div className="table-container">

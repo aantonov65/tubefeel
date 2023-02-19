@@ -1,26 +1,46 @@
-import React, { useMemo } from "react";
+import React, { useState, useMemo, useEffect, useContext } from "react";
+import UserContext from "../api/userContext";
 import Header from "../components/Header";
 import Navigation from "../components/navigation/Navigation";
 import Footer from "../components/footer/Footer";
-import mockData from "../components/mockData/MOCK_DATA.json";
 import { useTable } from "react-table";
 import { Container } from "react-bootstrap";
+import { baseURL } from "../api/config";
+import axios from "axios";
 
 const Artists = () => {
-  const data = useMemo(() => mockData, []);
+    const { userID } = useContext(UserContext);
+
+    const [artists, setArtists] = useState([]);
+
+    useEffect(() => {
+        axios.get(baseURL + "/users/topArtists/" + userID)
+            .then((res) => {
+                const data = res.data.map((artist, index) => {
+                    return {
+                        ...artist,
+                        rank: index + 1,
+                    };
+                });
+                setArtists(data);
+            })
+            .catch((err) => console.log(err));
+    }, []);
+
   const columns = useMemo(
     () => [
-      { Header: "Място", accessor: "place" },
+      { Header: "Място", accessor: "rank" },
       { Header: "Име", accessor: "name" },
-      { Header: "Популярност", accessor: "popularity" },
+      { Header: "Слушани песни", accessor: "artistListens" }
+      /*{ Header: "Популярност", accessor: "popularity" },
       { Header: "Последователи", accessor: "followers" },
-      { Header: "Вижте артиста отново", accessor: "artist" },
+      { Header: "Вижте артиста отново", accessor: "artist" },*/
     ],
     []
   );
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data });
+        useTable({ columns, data: artists });
 
   return (
     <>

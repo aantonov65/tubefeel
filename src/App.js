@@ -16,32 +16,35 @@ import Feeling from "./pages/Feeling";
 import DaysFeeling from "./pages/DaysFeeling";
 import Positivity from "./pages/Positivity";
 import History from "./pages/History";
+import UserProvider from './api/userProvider';
 
 function App() {
-  return (
-    <div className="App">
-      {/* <Navigation /> */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/songs-numbers" element={<SongNumbers />} />
-        <Route path="/artists" element={<Artists />} />
-        <Route path="/history" element={<History />} />
-        <Route path="/my-top-ten" element={<MyTopTen />} />
-        <Route path="/tubefeel-top-ten" element={<TopTen />} />
-        <Route path="/positivity" element={<Positivity />} />
-        <Route path="/feeling" element={<Feeling />} />
-        <Route path="/days-feeling" element={<DaysFeeling />} />
-        <Route path="/today-feeling" element={<TodayFeeling />} />
-        <Route path="/week-feeling" element={<WeekFeeling />} />
-        <Route path="/month-feeling" element={<MonthFeeling />} />
-        <Route path="/year-feeling" element={<YearFeeling />} />
-      </Routes>
-      {/* <Footer /> */}
-    </div>
+    return (
+    <UserProvider>
+        <div className="App">
+          {/* <Navigation /> */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/songs-numbers" element={<SongNumbers />} />
+            <Route path="/artists" element={<Artists />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/my-top-ten" element={<MyTopTen />} />
+            <Route path="/tubefeel-top-ten" element={<TopTen />} />
+            <Route path="/positivity" element={<Positivity />} />
+            <Route path="/feeling" element={<Feeling />} />
+            <Route path="/days-feeling" element={<DaysFeeling />} />
+            <Route path="/today-feeling" element={<TodayFeeling />} />
+            <Route path="/week-feeling" element={<WeekFeeling />} />
+            <Route path="/month-feeling" element={<MonthFeeling />} />
+            <Route path="/year-feeling" element={<YearFeeling />} />
+          </Routes>
+          {/* <Footer /> */}
+        </div>
+    </UserProvider>
   );
 }
 

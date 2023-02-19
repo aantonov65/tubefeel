@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import UserContext from "../api/userContext";
 import Footer from "../components/footer/Footer";
 import Header from "../components/Header";
 import Navigation from "../components/navigation/Navigation";
@@ -6,6 +7,7 @@ import ChartContainer from "../components/topTen/ChartContainer";
 import Table from "../components/topTen/Table";
 
 const TopTen = () => {
+    const { userID } = useContext(UserContext);
   return (
     <>
       <Navigation />
