@@ -9,7 +9,7 @@ const Artists = () => {
 
     const { userID } = useContext(UserContext);
     useEffect(() => {
-        axios.get(baseURL + "/users/history/" + userID)
+        axios.get(baseURL + "/users/totalHistory/" + userID)
             .then((res) => {
                 const data = res.data.map((track, index) => {
                     return {

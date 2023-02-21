@@ -13,10 +13,20 @@ import axios from "axios";
 const TodayFeeling = () => {
     const { userID } = useContext(UserContext);
 
+    const [tracks, setTracks] = useState([]);
 
     useEffect(() => {
         axios.get(baseURL + "/users/history/today/" + userID)
             .then((res) => {
+                const data = res.data.map((track, index) => {
+                    return {
+                        ...track,
+                        rank: index + 1,
+                    };
+                });
+                setTracks(data);
+
+
                 let names = [];
                 let valences = [];
 
@@ -37,11 +47,23 @@ const TodayFeeling = () => {
                     ],
                     options: [
                         {
-                            responsive: false,
+                            responsive: true,
                             maintainAspectRatio: false,
                         },
                     ],
                 })
+            })
+            .catch((err) => console.log(err));
+
+        axios.get(baseURL + "/users/history/today/" + userID)
+            .then((res) => {
+                const data = res.data.map((track, index) => {
+                    return {
+                        ...track,
+                        rank: index + 1,
+                    };
+                });
+                setTracks(data);
             })
             .catch((err) => console.log(err));
     }, []);
@@ -58,7 +80,7 @@ const TodayFeeling = () => {
     ],
     options: [
       {
-        responsive: false,
+        responsive: true,
         maintainAspectRatio: false,
       },
     ],
@@ -72,10 +94,10 @@ const TodayFeeling = () => {
           desc="Тук може да разгледате градацията на настроението Ви за днешния ден."
         />
         <Definition />
-        <div className="chart-container">
+        <div className="container">
           <LineChart chartData={userData} />
         </div>
-        <Table />
+        <Table tracks={ tracks }/>
       </div>
       <Footer />
     </>

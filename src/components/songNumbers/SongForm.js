@@ -10,7 +10,10 @@ const SongForm = () => {
       <div className="input-group mb-3 h5">
         <div className="input-group-prepend">
           <select name="select" id="selectSong">
-            <option value="noSongs">Нямате слушани песни.</option>
+            <option value="noSongs">Byala roza</option>
+            <option value="noSongs">Moma Yanitsa</option>
+            <option value="noSongs">INDUSTRY BABY - EXTENDED</option>
+            <option value="noSongs">MONTERO (Call Me By Your Name)</option>
           </select>
         </div>
       </div>

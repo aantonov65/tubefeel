@@ -4,25 +4,8 @@ import { useTable } from "react-table";
 import { baseURL } from "../../api/config";
 import axios from "axios";
 
-const Table = () => {
-    const [tracks, setTracks] = useState([]);
-
-    const { userID } = useContext(UserContext);
-
-    useEffect(() => {
-        axios.get(baseURL + "/users/history/today/" + userID)
-            .then((res) => {
-                const data = res.data.map((track, index) => {
-                    return {
-                        ...track,
-                        rank: index + 1,
-                    };
-                });
-                setTracks(data);
-            })
-            .catch((err) => console.log(err));
-    }, []);
-
+const Table = ({ tracks }) => {
+    console.log(tracks);
     const columns = useMemo(
         () => [
             { Header: "Място", accessor: "rank" },
