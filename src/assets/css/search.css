@@ -6,6 +6,7 @@
 
 .search .container-fluid p {
   font-size: 1.25rem;
+  overflow-wrap: break-word;
 }
 
 .search .container-fluid form {
@@ -98,6 +99,26 @@
   justify-content: center;
 }
 
+.popup-content {
+  border-radius: 10px;
+  box-shadow: rgba(25, 23, 23, 0.2) 5px 5px;
+}
+
+.to-history {
+  font-size: 1.15rem;
+}
+
+.close-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: rgba(220, 53, 69, 1);
+}
+
+.close-icon:hover {
+  cursor: pointer;
+  color: #bb2d3b;
+}
 /* End of Selected Video section */
 
 /*Media queries*/

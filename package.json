@@ -30,6 +30,7 @@
     "react-router-dom": "^6.6.1",
     "react-scripts": "^5.0.1",
     "react-table": "^7.8.0",
+    "reactjs-popup": "^2.0.5",
     "stream": "^0.0.2",
     "timers": "^0.1.1",
     "tls": "^0.0.1",
