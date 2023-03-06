@@ -1,5 +1,4 @@
-import React, { useState, useMemo, useEffect, useContext } from "react";
-import UserContext from "../api/userContext";
+import React, { useState, useMemo, useEffect } from "react";
 import Header from "../components/Header";
 import Navigation from "../components/navigation/Navigation";
 import Footer from "../components/footer/Footer";
@@ -9,7 +8,7 @@ import { baseURL } from "../api/config";
 import axios from "axios";
 
 const Positivity = () => {
-    const { userID } = useContext(UserContext);
+    const userID = localStorage.getItem('userID');
 
     const [artists, setArtists] = useState([]);
 

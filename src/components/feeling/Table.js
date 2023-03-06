@@ -1,8 +1,6 @@
-import React, { useState, useMemo, useEffect, useContext } from "react";
-import UserContext from "../../api/userContext";
+import React, { useState, useMemo, useEffect } from "react";
 import { useTable } from "react-table";
-import { baseURL } from "../../api/config";
-import axios from "axios";
+
 
 const Table = ({ tracks }) => {
     console.log(tracks);

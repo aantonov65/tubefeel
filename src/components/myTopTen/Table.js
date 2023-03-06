@@ -1,5 +1,4 @@
-import React, { useState, useMemo, useEffect, useContext } from "react";
-import UserContext from "../../api/userContext";
+import React, { useState, useMemo, useEffect } from "react";
 import { useTable } from "react-table";
 import { baseURL } from "../../api/config";
 import axios from "axios";
@@ -7,7 +6,7 @@ import axios from "axios";
 const Artists = () => {
     const [tracks, setTracks] = useState([]);
 
-    const { userID } = useContext(UserContext);
+    const userID = localStorage.getItem('userID');
 
     useEffect(() => {
         axios.get(baseURL + "/tracks/top10/" + userID)

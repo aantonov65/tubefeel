@@ -1,17 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Button, Nav } from "react-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
-import UserContext from "../../api/userContext";
 import { useNavigate } from "react-router-dom";
 
 const NavigationLinks = () => {
     const navigate = useNavigate();
 
-    const { setUserID } = useContext(UserContext);
-
     const handleLogout = () => {
-        setUserID("");
+        localStorage.removeItem('userID');
         navigate("/");
     }
 
@@ -23,9 +20,9 @@ const NavigationLinks = () => {
             <Nav.Link as={Link} to="/search">
                 Добави в историята
             </Nav.Link>
-            <Nav.Link as={Link} to="/songs-numbers">
+            {/*<Nav.Link as={Link} to="/songs-numbers">
                 Песните в цифри
-            </Nav.Link>
+            </Nav.Link>*/}
             <NavDropdown title="Статистики" id="collasible-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/artists">
                     Артисти

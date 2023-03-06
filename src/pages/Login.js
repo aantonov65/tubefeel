@@ -1,15 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import { Button, Form, Alert } from "react-bootstrap";
 import { baseURL } from "../api/config";
-import UserContext from "../api/userContext";
 import axios from "axios";
 import "../assets/css/forms.css";
 
 const Login = () => {
-    const { setUserID } = useContext(UserContext);
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -32,7 +29,7 @@ const Login = () => {
                 //Login is successful
                 if (typeof response.data == "object" && typeof response.data !== "undefined") {
                     let userID = response.data.userID;
-                    setUserID(userID);
+                    localStorage.setItem('userID', userID);
                     navigate("/");
                 }
                 //User input incorrect password

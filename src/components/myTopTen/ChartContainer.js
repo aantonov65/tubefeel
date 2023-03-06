@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-import UserContext from "../../api/userContext";
+import React, { useState, useEffect } from "react";
 import BarChart from "./BarChart";
 import { baseURL } from "../../api/config";
 import axios from "axios";
 
 const ChartContainer = () => {
-    const { userID } = useContext(UserContext);
+    const userID = localStorage.getItem('userID');
 
     const [userData, setUserData] = useState({
         labels: [],

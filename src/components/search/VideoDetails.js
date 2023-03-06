@@ -1,5 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
-import UserContext from "../../api/userContext";
+import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import VideoPlayer from "./VideoPlayer";
 import { baseURL } from "../../api/config";
@@ -13,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const VideoDetails = ({ videoId, title, desc, channel }) => {
   const navigate = useNavigate();
-  const { userID } = useContext(UserContext);
+  const userID = localStorage.getItem('userID');
   const [SYToken, setSYToken] = useState("");
   useEffect(() => {
     const spotifyToken = (async function spotifyAuthenticate() {

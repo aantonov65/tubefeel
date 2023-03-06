@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-import UserContext from "../api/userContext";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import LineChart from "../components/feeling/LineChart";
 import Table from "../components/feeling/Table";
@@ -11,7 +10,7 @@ import { baseURL } from "../api/config";
 import axios from "axios";
 
 const MonthFeeling = () => {
-    const { userID } = useContext(UserContext);
+    const userID = localStorage.getItem('userID');
 
     const [tracks, setTracks] = useState([]);
 
