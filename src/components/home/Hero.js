@@ -21,7 +21,7 @@ const Hero = () => {
                     проследи музикалната последователност на личността и спрямо нея да се
                     характеризира емоционалната му същност.
                 </p>
-                {typeof userID == "number" ? null : (
+                {typeof userID == "string" ? null : (
                     <Button
                         className="home-button mt-2 py-2"
                         variant="danger"

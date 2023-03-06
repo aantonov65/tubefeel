@@ -13,7 +13,9 @@ import { useNavigate } from "react-router-dom";
 const VideoDetails = ({ videoId, title, desc, channel }) => {
   const navigate = useNavigate();
   const userID = localStorage.getItem('userID');
-  const [SYToken, setSYToken] = useState("");
+    const [SYToken, setSYToken] = useState("");
+    const [popupOpen, setPopupOpen] = useState(false);
+
   useEffect(() => {
     const spotifyToken = (async function spotifyAuthenticate() {
       var client_id = "a89cff21ee9d4e1d8e1ace87c3bf5b31";
@@ -129,8 +131,11 @@ const VideoDetails = ({ videoId, title, desc, channel }) => {
         console.log(error);
       });
 
-    // 0.353, 122.025, "spotify:track:5m1lVYrNHb63gP7WA68uaB", "https://api.spotify.com/v1/tracks/5m1lVYrNHb63gP7WA68uaB" , 226230, 2
+      setPopupOpen(o => !o);
   };
+
+
+    const closeModal = () => setPopupOpen(false);
 
   if (!videoId) {
     return;
@@ -144,16 +149,16 @@ const VideoDetails = ({ videoId, title, desc, channel }) => {
         <h2 className="h1 m-0">{title}</h2>
         <h3>{channel}</h3>
         <p className="h5 mt-2 text-secondary">{desc}</p>
+        <button
+            className="btn btn-danger text-white mt-2 px-2"
+            onClick={handleInsert}>
+            Добавете към вашата история
+        </button>
         <Popup
-          trigger={
-            <button
-              className="btn btn-danger text-white mt-2 px-2"
-              onClick={handleInsert}>
-              Добавете към вашата история
-            </button>
-          }
+          open={popupOpen} 
           modal
-          nested>
+          nested
+          onClose={closeModal}>
           {(close) => (
             <div className="py-2 h4 text-center rounded">
               <div className="content mt-3">

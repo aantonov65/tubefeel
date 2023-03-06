@@ -12,7 +12,6 @@ const Navigation = () => {
 
   const navigate = useNavigate();
 
-    console.log(typeof userID)
     useEffect(() => {
         if (typeof userID == "object") {
             navigate("/");
