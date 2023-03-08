@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import Header from "../components/Header";
+import HeaderBreadcrumb from "../components/HeaderBreadcrumb";
 import Navigation from "../components/navigation/Navigation";
 import Footer from "../components/footer/Footer";
 import { useTable } from "react-table";
@@ -8,29 +9,30 @@ import { baseURL } from "../api/config";
 import axios from "axios";
 
 const Artists = () => {
-    const userID = localStorage.getItem('userID');
+  const userID = localStorage.getItem("userID");
 
-    const [artists, setArtists] = useState([]);
+  const [artists, setArtists] = useState([]);
 
-    useEffect(() => {
-        axios.get(baseURL + "/users/topArtists/" + userID)
-            .then((res) => {
-                const data = res.data.map((artist, index) => {
-                    return {
-                        ...artist,
-                        rank: index + 1,
-                    };
-                });
-                setArtists(data);
-            })
-            .catch((err) => console.log(err));
-    }, []);
+  useEffect(() => {
+    axios
+      .get(baseURL + "/users/topArtists/" + userID)
+      .then((res) => {
+        const data = res.data.map((artist, index) => {
+          return {
+            ...artist,
+            rank: index + 1,
+          };
+        });
+        setArtists(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const columns = useMemo(
     () => [
       { Header: "Място", accessor: "rank" },
       { Header: "Име", accessor: "name" },
-      { Header: "Слушани песни", accessor: "artistListens" }
+      { Header: "Слушани песни", accessor: "artistListens" },
       /*{ Header: "Популярност", accessor: "popularity" },
       { Header: "Последователи", accessor: "followers" },
       { Header: "Вижте артиста отново", accessor: "artist" },*/
@@ -39,7 +41,7 @@ const Artists = () => {
   );
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-        useTable({ columns, data: artists });
+    useTable({ columns, data: artists });
 
   return (
     <>
@@ -48,6 +50,7 @@ const Artists = () => {
         <Header
           title="Питате се кой е Вашият любим певец или състав?"
           desc="Тук ще видите таблично представена статистика на десетте най-слушани от Вас певци и състави."
+          breadcrumb={<HeaderBreadcrumb page="Артисти" />}
         />
         <Container fluid>
           <div className="table-container">

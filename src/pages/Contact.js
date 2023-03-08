@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import "../assets/css/contact.css";
 import Navigation from "../components/navigation/Navigation";
 import Footer from "../components/footer/Footer";
+import HeaderBreadcrumb from "../components/HeaderBreadcrumb";
 
 const ContactForm = () => {
   return (
@@ -13,6 +14,7 @@ const ContactForm = () => {
         <Header
           title="Свържете се с нас!"
           desc="Ние ще отговорим възможно най-бързо!"
+          breadcrumb={<HeaderBreadcrumb page="Контакти" />}
         />
         <Form className="contact my-3 pb-4 d-flex flex-column mx-auto overflow-hidden">
           <Form.Group className="mb-3 px-4 mt-2" controlId="contact-form-email">

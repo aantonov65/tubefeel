@@ -6,3 +6,13 @@ nav {
 nav a {
   font-size: 1.25rem;
 }
+
+nav a.active {
+  color: #dc3545 !important;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  color: white !important;
+  background-color: #dc3545 !important;
+}
