@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, Nav } from "react-bootstrap";
 
 const Navigation = () => {
-  const userID = localStorage.getItem("userID");
+  const userID = true; //localStorage.getItem("userID");
 
   const navigate = useNavigate();
 

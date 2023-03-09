@@ -1,25 +1,30 @@
 import React, { useState, useMemo, useEffect } from "react";
-import { useTable } from "react-table";
 import { baseURL } from "../../api/config";
+import { ReactComponent as ChevronDown } from "../../assets/icons/chevron-down.svg";
+import { ReactComponent as ChevronUp } from "../../assets/icons/chevron-up.svg";
+import { ReactComponent as ChevronRight } from "../../assets/icons/chevron-right.svg";
+import { ReactComponent as ChevronLeft } from "../../assets/icons/chevron-left.svg";
+import { useTable, useSortBy, usePagination } from "react-table";
 import axios from "axios";
 
 const Artists = () => {
-    const [tracks, setTracks] = useState([]);
+  const [tracks, setTracks] = useState([]);
 
-    const userID = localStorage.getItem('userID');
-    useEffect(() => {
-        axios.get(baseURL + "/users/totalHistory/" + userID)
-            .then((res) => {
-                const data = res.data.map((track, index) => {
-                    return {
-                        ...track,
-                        rank: index + 1,
-                    };
-                });
-                setTracks(data);
-            })
-            .catch((err) => console.log(err));
-    }, []);
+  const userID = localStorage.getItem("userID");
+  useEffect(() => {
+    axios
+      .get(baseURL + "/users/totalHistory/" + userID)
+      .then((res) => {
+        const data = res.data.map((track, index) => {
+          return {
+            ...track,
+            rank: index + 1,
+          };
+        });
+        setTracks(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   const columns = useMemo(
     () => [
       { Header: "Номер", accessor: "rank" },
@@ -35,9 +40,19 @@ const Artists = () => {
     ],
     []
   );
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    page,
+    nextPage,
+    previousPage,
+    pageOptions,
+    state,
+    prepareRow,
+  } = useTable({ columns, data: tracks }, useSortBy, usePagination);
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-        useTable({ columns, data: tracks });
+  const { pageIndex } = state;
 
   return (
     <div className="table-container">
@@ -46,13 +61,26 @@ const Artists = () => {
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render("Header")}
+                  <span className="ms-1">
+                    {column.isSorted ? (
+                      column.isSortedDesc ? (
+                        <ChevronDown />
+                      ) : (
+                        <ChevronUp />
+                      )
+                    ) : (
+                      <ChevronRight />
+                    )}
+                  </span>
+                </th>
               ))}
             </tr>
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
+          {page.map((row) => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()}>
@@ -64,6 +92,19 @@ const Artists = () => {
           })}
         </tbody>
       </table>
+      <div className="text-center h5 mb-4">
+        <ChevronLeft
+          className="pagination-buttons text-danger"
+          onClick={() => previousPage()}
+        />
+        <span className="mx-2">
+          Страница {pageIndex + 1} от {pageOptions.length}
+        </span>
+        <ChevronRight
+          className="pagination-buttons text-danger"
+          onClick={() => nextPage()}
+        />
+      </div>
     </div>
   );
 };
