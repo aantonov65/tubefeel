@@ -83,7 +83,7 @@ const WeekFeeling = () => {
           breadcrumb={<HeaderBreadcrumb page="Настроение тази седмица" />}
         />
         <Definition />
-        <div className="container">
+        <div className="chart-container">
           <LineChart chartData={userData} />
         </div>
         <Table tracks={tracks} />

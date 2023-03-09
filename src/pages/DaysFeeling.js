@@ -83,7 +83,7 @@ const DaysFeeling = () => {
           breadcrumb={<HeaderBreadcrumb page="Настроение по дни" />}
         />
         <Definition />
-        <div className="container">
+        <div className="chart-container">
           <LineChart chartData={userData} />
         </div>
         <Footer />

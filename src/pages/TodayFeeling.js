@@ -96,7 +96,7 @@ const TodayFeeling = () => {
           breadcrumb={<HeaderBreadcrumb page="Настроение днес" />}
         />
         <Definition />
-        <div className="container">
+        <div className="chart-container">
           <LineChart chartData={userData} />
         </div>
         <Table tracks={tracks} />

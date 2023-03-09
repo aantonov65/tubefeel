@@ -83,7 +83,7 @@ const MonthFeeling = () => {
           breadcrumb={<HeaderBreadcrumb page="Настроение този месец" />}
         />
         <Definition />
-        <div className="container">
+        <div className="chart-container">
           <LineChart chartData={userData} />
         </div>
         <Table tracks={tracks} />

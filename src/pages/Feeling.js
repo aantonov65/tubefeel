@@ -83,7 +83,7 @@ const Feeling = () => {
           breadcrumb={<HeaderBreadcrumb page="Настроение" />}
         />
         <Definition />
-        <div className="container">
+        <div className="chart-container">
           <LineChart chartData={userData} />
         </div>
         <Table tracks={tracks} />

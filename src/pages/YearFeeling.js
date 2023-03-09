@@ -99,7 +99,7 @@ const YearFeeling = () => {
           breadcrumb={<HeaderBreadcrumb page="Настроение тази година" />}
         />
         <Definition />
-        <div className="container">
+        <div className="chart-container">
           <LineChart chartData={userData} />
         </div>
         <Table tracks={tracks} />
