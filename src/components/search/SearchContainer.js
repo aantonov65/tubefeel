@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import HeaderBreadcrumb from "../../components/HeaderBreadcrumb";
 import youtubeApi from "../../api/youtube";
 import VideoDetails from "./VideoDetails";
 import VideoList from "./VideoList";
@@ -88,6 +89,7 @@ const SearchContainer = () => {
         onVideoSelected={onVideoSelected}
         data={videoData.videoMetaInfo}
       />
+      <HeaderBreadcrumb page="Добави в историята" />
     </Container>
   );
 };
