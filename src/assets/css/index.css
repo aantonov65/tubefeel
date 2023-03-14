@@ -62,22 +62,23 @@ h1 {
 
 /* Gradient for header compatible with all browsers*/
 
-.breadcrumbs {
+.header-breadcrumb {
   background-color: #fffdfd;
+  color: rgb(58, 57, 57);
 }
 
-.breadcrumbs a {
-  margin-left: 0.25rem;
+.header-breadcrumb a {
   color: rgb(58, 57, 57);
+  margin-left: 0.25rem;
   text-decoration: none;
   transition: 300ms all;
 }
 
-.breadcrumbs a:hover {
+.header-breadcrumb a:hover {
   color: #dc3545;
 }
 
-.breadcrumbs a.active {
+.header-breadcrumb a.active {
   text-decoration: none;
   color: #dc3545 !important;
 }

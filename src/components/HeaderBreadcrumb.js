@@ -5,7 +5,7 @@ function HeaderBreadcrumb(props) {
   let currentLink = location.pathname;
 
   return (
-    <div className="breadcrumbs text-black shadow-sm m-0 h5 p-2 text-center">
+    <div className="header-breadcrumb shadow-sm m-0 h5 p-2 mx-auto text-center">
       Вие се намирате в: <NavLink to={"/"}>Начало</NavLink> /
       <NavLink to={currentLink}>{props.page}</NavLink>
     </div>
