@@ -25,7 +25,7 @@ const MonthFeeling = () => {
             rank: index + 1,
           };
         });
-        setTracks(data);
+          setTracks(data.reverse());
 
         let names = [];
         let valences = [];

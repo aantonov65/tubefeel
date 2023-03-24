@@ -20,7 +20,6 @@ const SongNumbers = () => {
       .get(baseURL + "/users/songNumbers/" + userID)
       .then((res) => {
         setSongsData(res.data);
-        console.log("Data get");
       })
       .catch((err) => console.log(err));
   }, []);

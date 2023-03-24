@@ -7,13 +7,15 @@ import Footer from "../components/footer/Footer";
 import Widgets from "../components/home/Widgets";
 
 const Home = () => {
-  return (
+    const userID = localStorage.getItem('userID');
+
+    return (
     <>
       <Navigation />
       <div className="home">
         <Hero />
         <Stats />
-        <Widgets />
+        {typeof userID == "string" ? <Widgets /> : null}
       </div>
       <Footer />
     </>

@@ -6,7 +6,6 @@ import { ReactComponent as ChevronRight } from "../../assets/icons/chevron-right
 import { ReactComponent as ChevronLeft } from "../../assets/icons/chevron-left.svg";
 
 const Table = ({ tracks }) => {
-  console.log(tracks);
   const columns = useMemo(
     () => [
       { Header: "Място", accessor: "rank" },

@@ -15,13 +15,13 @@ const Artists = () => {
     axios
       .get(baseURL + "/users/totalHistory/" + userID)
       .then((res) => {
-        const data = res.data.map((track, index) => {
-          return {
+          const data = res.data.map((track, index) => {
+              return {
             ...track,
             rank: index + 1,
-          };
+              };
         });
-        setTracks(data);
+          setTracks(data.reverse());
       })
       .catch((err) => console.log(err));
   }, []);

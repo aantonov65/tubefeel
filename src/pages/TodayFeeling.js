@@ -64,7 +64,7 @@ const TodayFeeling = () => {
             rank: index + 1,
           };
         });
-        setTracks(data);
+          setTracks(data.reverse());
       })
       .catch((err) => console.log(err));
   }, []);

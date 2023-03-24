@@ -3,13 +3,19 @@ import { Button, Nav } from "react-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const NavigationLinks = () => {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    const location = useLocation();
 
   const handleLogout = () => {
     localStorage.removeItem("userID");
-    navigate("/");
+      if (location.pathname === '/') {
+          window.location.href = window.location.href;
+      } else {
+          navigate("/");
+      }
   };
 
   return (
