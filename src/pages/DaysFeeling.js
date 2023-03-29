@@ -31,7 +31,14 @@ const DaysFeeling = () => {
         let valences = [];
 
         res.data.forEach((e) => {
-          days.push(e.day);
+          const date = new Date(e.day);
+          const formattedDate = date.toLocaleDateString("en-US", {
+            month: "2-digit",
+            day: "2-digit",
+            year: "numeric",
+          });
+
+          days.push(formattedDate);
           valences.push(e.averageValence);
         });
 
