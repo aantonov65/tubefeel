@@ -10,21 +10,28 @@ import axios from "axios";
 const Artists = () => {
   const [tracks, setTracks] = useState([]);
 
+  const handleDelete = (row) => {
+    // const id = row.original.id;
+    // setTracks((prevTracks) => prevTracks.filter((track) => track.id !== id));
+    console.log(row);
+  };
+
   const userID = localStorage.getItem("userID");
   useEffect(() => {
     axios
       .get(baseURL + "/users/totalHistory/" + userID)
       .then((res) => {
-          const data = res.data.map((track, index) => {
-              return {
+        const data = res.data.map((track, index) => {
+          return {
             ...track,
             rank: index + 1,
-              };
+          };
         });
-          setTracks(data.reverse());
+        setTracks(data.reverse());
       })
       .catch((err) => console.log(err));
   }, []);
+
   const columns = useMemo(
     () => [
       { Header: "Номер", accessor: "rank" },
@@ -37,9 +44,18 @@ const Artists = () => {
       { Header: "Живост", accessor: "liveness" },
       { Header: "Позитивност", accessor: "valence" },
       { Header: "Темпо", accessor: "tempo" },
+      {
+        Header: " ",
+        Cell: ({ row }) => (
+          <button className="btn btn-danger" onClick={() => handleDelete(row)}>
+            Премахни
+          </button>
+        ),
+      },
     ],
     []
   );
+
   const {
     getTableProps,
     getTableBodyProps,
