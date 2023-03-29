@@ -7,7 +7,7 @@ import "../../assets/css/nav.css";
 import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
-  const userID = true;
+  const userID = localStorage.getItem("userID");
 
   const navigate = useNavigate();
 
