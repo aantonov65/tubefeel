@@ -7,6 +7,7 @@ import { Container } from "react-bootstrap";
 import { baseURL } from "../api/config";
 import axios from "axios";
 import HeaderBreadcrumb from "../components/HeaderBreadcrumb";
+import { motion } from "framer-motion";
 
 const Positivity = () => {
   const userID = localStorage.getItem("userID");
@@ -53,7 +54,11 @@ const Positivity = () => {
           breadcrumb={<HeaderBreadcrumb page="Повдигнете настроението си" />}
         />
         <Container fluid>
-          <div className="table-container">
+          <motion.div
+            className="table-container"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 0.5 } }}
+            exit={{ opacity: 0 }}>
             <table {...getTableProps()}>
               <thead>
                 {headerGroups.map((headerGroup) => (
@@ -79,7 +84,7 @@ const Positivity = () => {
                 })}
               </tbody>
             </table>
-          </div>
+          </motion.div>
         </Container>
       </div>
       <Footer />

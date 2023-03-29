@@ -11,6 +11,7 @@ import { ReactComponent as ChevronUp } from "../assets/icons/chevron-up.svg";
 import { ReactComponent as ChevronRight } from "../assets/icons/chevron-right.svg";
 import { ReactComponent as ChevronLeft } from "../assets/icons/chevron-left.svg";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 const Artists = () => {
   const userID = localStorage.getItem("userID");
@@ -68,7 +69,11 @@ const Artists = () => {
           breadcrumb={<HeaderBreadcrumb page="Артисти" />}
         />
         <Container fluid>
-          <div className="table-container">
+          <motion.div
+            className="table-container"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 0.5 } }}
+            exit={{ opacity: 0 }}>
             <table {...getTableProps()}>
               <thead>
                 {headerGroups.map((headerGroup) => (
@@ -121,7 +126,7 @@ const Artists = () => {
                 onClick={() => nextPage()}
               />
             </div>
-          </div>
+          </motion.div>
         </Container>
       </div>
       <Footer />

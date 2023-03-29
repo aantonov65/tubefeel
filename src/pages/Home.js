@@ -5,18 +5,23 @@ import "../assets/css/home.css";
 import Navigation from "../components/navigation/Navigation";
 import Footer from "../components/footer/Footer";
 import Widgets from "../components/home/Widgets";
+import { motion } from "framer-motion";
 
 const Home = () => {
-    const userID = localStorage.getItem('userID');
+  const userID = localStorage.getItem("userID");
 
-    return (
+  return (
     <>
       <Navigation />
-      <div className="home">
+      <motion.div
+        className="home"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 0.5 } }}
+        exit={{ opacity: 0 }}>
         <Hero />
         <Stats />
         {typeof userID == "string" ? <Widgets /> : null}
-      </div>
+      </motion.div>
       <Footer />
     </>
   );

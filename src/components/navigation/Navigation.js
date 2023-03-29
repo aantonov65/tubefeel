@@ -1,14 +1,13 @@
 import logo from "../../assets/images/logo.png";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import NavigationLinks from "./NavigationLinks";
 import "../../assets/css/nav.css";
 import { useNavigate } from "react-router-dom";
-import { Button, Nav } from "react-bootstrap";
 
 const Navigation = () => {
-  const userID = localStorage.getItem("userID");
+  const userID = true;
 
   const navigate = useNavigate();
 

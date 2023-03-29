@@ -6,6 +6,7 @@ import { ReactComponent as ChevronRight } from "../../assets/icons/chevron-right
 import { ReactComponent as ChevronLeft } from "../../assets/icons/chevron-left.svg";
 import { useTable, useSortBy, usePagination } from "react-table";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 const Artists = () => {
   const [tracks, setTracks] = useState([]);
@@ -71,7 +72,11 @@ const Artists = () => {
   const { pageIndex } = state;
 
   return (
-    <div className="table-container">
+    <motion.div
+      className="table-container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 0.5 } }}
+      exit={{ opacity: 0 }}>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -121,7 +126,7 @@ const Artists = () => {
           onClick={() => nextPage()}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -5,6 +5,7 @@ import "../assets/css/contact.css";
 import Navigation from "../components/navigation/Navigation";
 import Footer from "../components/footer/Footer";
 import HeaderBreadcrumb from "../components/HeaderBreadcrumb";
+import { motion } from "framer-motion";
 
 const ContactForm = () => {
   return (
@@ -16,7 +17,11 @@ const ContactForm = () => {
           desc="Ние ще отговорим възможно най-бързо!"
           breadcrumb={<HeaderBreadcrumb page="Контакти" />}
         />
-        <Form className="contact my-3 pb-4 d-flex flex-column mx-auto overflow-hidden">
+        <motion.Form
+          className="contact my-3 pb-4 d-flex flex-column mx-auto overflow-hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 0.5 } }}
+          exit={{ opacity: 0 }}>
           <Form.Group className="mb-3 px-4 mt-2" controlId="contact-form-email">
             <Form.Label>Е-мейл</Form.Label>
             <Form.Control
@@ -41,7 +46,7 @@ const ContactForm = () => {
           <Button className="btn mx-auto mt-4" variant="danger" type="submit">
             Изпрати
           </Button>
-        </Form>
+        </motion.Form>
       </div>
       <Footer />
     </>
