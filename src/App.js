@@ -1,3 +1,5 @@
+﻿import React from "react";
+import { Helmet } from "react-helmet-async";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
@@ -20,32 +22,37 @@ import UserProvider from './api/userProvider';
 
 function App() {
     return (
-    <UserProvider>
-        <div className="App">
-          {/* <Navigation /> */}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/songs-numbers" element={<SongNumbers />} />
-            <Route path="/artists" element={<Artists />} />
-            <Route path="/history" element={<History />} />
-            <Route path="/my-top-ten" element={<MyTopTen />} />
-            <Route path="/tubefeel-top-ten" element={<TopTen />} />
-            <Route path="/positivity" element={<Positivity />} />
-            <Route path="/feeling" element={<Feeling />} />
-            <Route path="/days-feeling" element={<DaysFeeling />} />
-            <Route path="/today-feeling" element={<TodayFeeling />} />
-            <Route path="/week-feeling" element={<WeekFeeling />} />
-            <Route path="/month-feeling" element={<MonthFeeling />} />
-            <Route path="/year-feeling" element={<YearFeeling />} />
-          </Routes>
-          {/* <Footer /> */}
-        </div>
-    </UserProvider>
-  );
+        <UserProvider>
+            <div className="App">
+                <Helmet>
+                    <meta name="description" content="Проследете градацията на настроението си чрез музика с нашето интерактивно приложение!" />
+                    <meta name="keywords" content="mood, music, YouTube, градация, настроение, музика, ютюб, статистики, песни" />
+                    <meta name="google-site-verification" content="tQMYDP8q6UH_zU17EdVY3_8xQa5TZRTC2dCCShMYYgg" />
+                </Helmet>
+                {/* <Navigation /> */}
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/search" element={<Search />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/songs-numbers" element={<SongNumbers />} />
+                    <Route path="/artists" element={<Artists />} />
+                    <Route path="/history" element={<History />} />
+                    <Route path="/my-top-ten" element={<MyTopTen />} />
+                    <Route path="/tubefeel-top-ten" element={<TopTen />} />
+                    <Route path="/positivity" element={<Positivity />} />
+                    <Route path="/feeling" element={<Feeling />} />
+                    <Route path="/days-feeling" element={<DaysFeeling />} />
+                    <Route path="/today-feeling" element={<TodayFeeling />} />
+                    <Route path="/week-feeling" element={<WeekFeeling />} />
+                    <Route path="/month-feeling" element={<MonthFeeling />} />
+                    <Route path="/year-feeling" element={<YearFeeling />} />
+                </Routes>
+                {/* <Footer /> */}
+            </div>
+        </UserProvider>
+    );
 }
 
 export default App;
