@@ -6,16 +6,16 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const NavigationLinks = () => {
-    const navigate = useNavigate();
-    const location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogout = () => {
     localStorage.removeItem("userID");
-      if (location.pathname === '/') {
-          window.location.href = window.location.href;
-      } else {
-          navigate("/");
-      }
+    if (location.pathname === "/") {
+      window.location.href = window.location.href;
+    } else {
+      navigate("/");
+    }
   };
 
   return (
@@ -26,33 +26,59 @@ const NavigationLinks = () => {
       <Nav.Link as={NavLink} to="/search">
         Добави в историята
       </Nav.Link>
-      {/*<Nav.Link as={NavLink} to="/songs-numbers">
-                Песните в цифри
-            </Nav.Link>*/}
       <NavDropdown title="Статистики" id="collasible-nav-dropdown">
         <NavDropdown.Item as={NavLink} to="/history">
           Вашата История
         </NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item as={NavLink} to="/tubefeel-top-ten">
-          TubeFeel Топ 10
-        </NavDropdown.Item>
-        <NavDropdown.Item as={NavLink} to="/my-top-ten">
-          Моето Топ 10
-        </NavDropdown.Item>
+        <NavDropdown
+          className="dropdown-custom"
+          title="Топ 10"
+          id="collasible-nav-dropdown">
+          <NavDropdown.Item
+            className="dropdown-item-custom"
+            as={NavLink}
+            to="/tubefeel-top-ten">
+            TubeFeel Топ 10
+          </NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item
+            className="dropdown-item-custom"
+            as={NavLink}
+            to="/my-top-ten">
+            Моето Топ 10
+          </NavDropdown.Item>
+        </NavDropdown>
         <NavDropdown.Divider />
-        <NavDropdown.Item as={NavLink} to="/my-artists">
+        <NavDropdown
+          className="dropdown-custom"
+          title="Артисти"
+          id="collasible-nav-dropdown">
+          <NavDropdown.Item
+            className="dropdown-item-custom"
+            as={NavLink}
+            to="/my-artists">
             Моите Топ Артисти
-        </NavDropdown.Item>
-        <NavDropdown.Item as={NavLink} to="/artists">
+          </NavDropdown.Item>
+          <NavDropdown.Item
+            className="dropdown-item-custom"
+            as={NavLink}
+            to="/artists">
             TubeFeel Топ Артисти
-        </NavDropdown.Item>
-        <NavDropdown.Item as={NavLink} to="/my-positive-artists">
+          </NavDropdown.Item>
+          <NavDropdown.Item
+            className="dropdown-item-custom"
+            as={NavLink}
+            to="/my-positive-artists">
             Моите Позитивни Артисти
-        </NavDropdown.Item>
-        <NavDropdown.Item as={NavLink} to="/positive-artists">
+          </NavDropdown.Item>
+          <NavDropdown.Item
+            className="dropdown-item-custom"
+            as={NavLink}
+            to="/positive-artists">
             TubeFeel Позитивни Артисти
-        </NavDropdown.Item>
+          </NavDropdown.Item>
+        </NavDropdown>
       </NavDropdown>
       <NavDropdown title="Настроение" id="collasible-nav-dropdown">
         <NavDropdown.Item as={NavLink} to="/today-feeling">
