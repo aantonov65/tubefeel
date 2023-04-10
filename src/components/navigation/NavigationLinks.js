@@ -30,8 +30,11 @@ const NavigationLinks = () => {
                 Песните в цифри
             </Nav.Link>*/}
       <NavDropdown title="Статистики" id="collasible-nav-dropdown">
+        <NavDropdown.Item as={NavLink} to="/my-artists">
+          Моите Топ Артисти
+        </NavDropdown.Item>
         <NavDropdown.Item as={NavLink} to="/artists">
-          Артисти
+          TubeFeel Топ Артисти
         </NavDropdown.Item>
         <NavDropdown.Item as={NavLink} to="/history">
           Вашата История

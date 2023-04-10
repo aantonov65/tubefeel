@@ -13,14 +13,14 @@ import { ReactComponent as ChevronLeft } from "../assets/icons/chevron-left.svg"
 import axios from "axios";
 import { motion } from "framer-motion";
 
-const Artists = () => {
+const MyArtists = () => {
   const userID = localStorage.getItem("userID");
 
   const [artists, setArtists] = useState([]);
 
   useEffect(() => {
     axios
-      .get(baseURL + "/users/topArtists/")
+      .get(baseURL + "/users/topArtists/" + userID)
       .then((res) => {
         const data = res.data.map((artist, index) => {
           return {
@@ -64,8 +64,8 @@ const Artists = () => {
       <Navigation />
       <div className="artists">
         <Header
-          title="Кои са най-слушаните артисти в нашата система?"
-          desc="Тук ще видите таблично представена статистика на десетте най-слушани певци и състави в цялата ни система."
+          title="Питате се кой е Вашият любим певец или състав?"
+          desc="Тук ще видите таблично представена статистика на десетте най-слушани от Вас певци и състави."
           breadcrumb={<HeaderBreadcrumb page="Артисти" />}
         />
         <Container fluid>
@@ -134,4 +134,4 @@ const Artists = () => {
   );
 };
 
-export default Artists;
+export default MyArtists;

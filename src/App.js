@@ -11,6 +11,7 @@ import MonthFeeling from "./pages/MonthFeeling";
 import YearFeeling from "./pages/YearFeeling";
 import Search from "./pages/Search";
 import Artists from "./pages/Artists";
+import MyArtists from "./pages/MyArtists";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Feeling from "./pages/Feeling";
@@ -31,6 +32,7 @@ function App() {
                     <Route path="/search" element={<Search />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/songs-numbers" element={<SongNumbers />} />
+                    <Route path="/my-artists" element={<MyArtists />} />
                     <Route path="/artists" element={<Artists />} />
                     <Route path="/history" element={<History />} />
                     <Route path="/my-top-ten" element={<MyTopTen />} />
