@@ -14,8 +14,6 @@ import axios from "axios";
 import { motion } from "framer-motion";
 
 const Artists = () => {
-  const userID = localStorage.getItem("userID");
-
   const [artists, setArtists] = useState([]);
 
   useEffect(() => {

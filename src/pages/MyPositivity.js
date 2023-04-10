@@ -9,12 +9,14 @@ import axios from "axios";
 import HeaderBreadcrumb from "../components/HeaderBreadcrumb";
 import { motion } from "framer-motion";
 
-const Positivity = () => {
+const MyPositivity = () => {
+  const userID = localStorage.getItem("userID");
+
   const [artists, setArtists] = useState([]);
 
   useEffect(() => {
     axios
-      .get(baseURL + "/users/positive/")
+      .get(baseURL + "/users/positive/" + userID)
       .then((res) => {
         const data = res.data.map((artist, index) => {
           return {
@@ -47,8 +49,8 @@ const Positivity = () => {
       <Navigation />
       <div className="positivity">
         <Header
-          title="Искате ли да повдигнете настроението си?"
-          desc="Тук може да видите ТOП 20 на най-позитивните песни, слушани в нашата система."
+          title="Искате ли да разберете кои са най-позитивните песни, които сте слушали?"
+          desc="Тук може да видите ТOП 20 на най-позитивните песни, слушани от Вас в системата."
           breadcrumb={<HeaderBreadcrumb page="Повдигнете настроението си" />}
         />
         <Container fluid>
@@ -90,4 +92,4 @@ const Positivity = () => {
   );
 };
 
-export default Positivity;
+export default MyPositivity;

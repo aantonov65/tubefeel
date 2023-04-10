@@ -22,6 +22,11 @@ const Shortcuts = () => {
             Подобрете настроението си
           </Link>
         </li>
+        <li>
+          <Link className="text-decoration-none text-white" to="/my-positivity">
+            Най-позитивните песни слушани от Вас
+          </Link>
+        </li>
       </ul>
     </Col>
   );

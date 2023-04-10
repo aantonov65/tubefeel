@@ -17,6 +17,7 @@ import Register from "./pages/Register";
 import Feeling from "./pages/Feeling";
 import DaysFeeling from "./pages/DaysFeeling";
 import Positivity from "./pages/Positivity";
+import MyPositivity from "./pages/MyPositivity";
 import History from "./pages/History";
 import UserProvider from './api/userProvider';
 
@@ -37,6 +38,7 @@ function App() {
                     <Route path="/history" element={<History />} />
                     <Route path="/my-top-ten" element={<MyTopTen />} />
                     <Route path="/tubefeel-top-ten" element={<TopTen />} />
+                    <Route path="/my-positivity" element={<MyPositivity />} />
                     <Route path="/positivity" element={<Positivity />} />
                     <Route path="/feeling" element={<Feeling />} />
                     <Route path="/days-feeling" element={<DaysFeeling />} />
