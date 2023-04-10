@@ -12,6 +12,8 @@ import YearFeeling from "./pages/YearFeeling";
 import Search from "./pages/Search";
 import Artists from "./pages/Artists";
 import MyArtists from "./pages/MyArtists";
+import PositiveArtists from "./pages/PositiveArtists";
+import MyPositiveArtists from "./pages/MyPositiveArtists";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Feeling from "./pages/Feeling";
@@ -35,6 +37,8 @@ function App() {
                     <Route path="/songs-numbers" element={<SongNumbers />} />
                     <Route path="/my-artists" element={<MyArtists />} />
                     <Route path="/artists" element={<Artists />} />
+                    <Route path="/positive-artists" element={<PositiveArtists />} />
+                    <Route path="/my-positive-artists" element={<MyPositiveArtists />} />
                     <Route path="/history" element={<History />} />
                     <Route path="/my-top-ten" element={<MyTopTen />} />
                     <Route path="/tubefeel-top-ten" element={<TopTen />} />

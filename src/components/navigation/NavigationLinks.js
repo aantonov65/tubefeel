@@ -47,6 +47,12 @@ const NavigationLinks = () => {
         <NavDropdown.Item as={NavLink} to="/artists">
             TubeFeel Топ Артисти
         </NavDropdown.Item>
+        <NavDropdown.Item as={NavLink} to="/my-positive-artists">
+            Моите Позитивни Артисти
+        </NavDropdown.Item>
+        <NavDropdown.Item as={NavLink} to="/positive-artists">
+            TubeFeel Позитивни Артисти
+        </NavDropdown.Item>
       </NavDropdown>
       <NavDropdown title="Настроение" id="collasible-nav-dropdown">
         <NavDropdown.Item as={NavLink} to="/today-feeling">
