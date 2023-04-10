@@ -1,5 +1,4 @@
 ﻿import React from "react";
-import { Helmet } from "react-helmet";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
@@ -24,11 +23,6 @@ function App() {
     return (
         <UserProvider>
             <div className="App">
-                <Helmet>
-                    <meta name="description" content="Проследете градацията на настроението си чрез музика с нашето интерактивно приложение!" />
-                    <meta name="keywords" content="mood, music, YouTube, градация, настроение, музика, ютюб, статистики, песни" />
-                    <meta name="google-site-verification" content="tQMYDP8q6UH_zU17EdVY3_8xQa5TZRTC2dCCShMYYgg" />
-                </Helmet>
                 {/* <Navigation /> */}
                 <Routes>
                     <Route path="/" element={<Home />} />
