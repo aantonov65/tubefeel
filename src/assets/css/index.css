@@ -14,6 +14,20 @@ h1 {
   font-size: 2.5rem;
 }
 
+.chart-container {
+  margin: auto;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 992px) {
+  .chart-container {
+    height: 400px;
+    width: 800px;
+  }
+}
+
 /* Statistics Table */
 
 .table-container {

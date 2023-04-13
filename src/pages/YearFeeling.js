@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
-import LineChart from "../components/feeling/LineChart";
+import LineChart from "../components/charts/LineChart";
 import Table from "../components/feeling/Table";
 import "../assets/css/feeling.css";
 import Footer from "../components/footer/Footer";
@@ -28,51 +28,51 @@ const YearFeeling = () => {
                 rank: index + 1,
               };
             });
-              setTracks(data.reverse());
+            setTracks(data.reverse());
           });
         let months = [];
         let valences = [];
         let monthName;
 
-          res.data.forEach((e) => {
-            switch (e.month) {
-                case 1:
-                    monthName = "Януари";
-                    break;
-                case 2:
-                    monthName = "Февруари";
-                    break;
-                case 3:
-                    monthName = "Март";
-                    break;
-                case 4:
-                    monthName = "Април";
-                    break;
-                case 5:
-                    monthName = "Май";
-                    break;
-                case 6:
-                    monthName = "Юни";
-                    break;
-                case 7:
-                    monthName = "Юли";
-                    break;
-                case 8:
-                    monthName = "Август";
-                    break;
-                case 9:
-                    monthName = "Септември";
-                    break;
-                case 10:
-                    monthName = "Октомври";
-                    break;
-                case 11:
-                    monthName = "Ноември";
-                    break;
-                case 12:
-                    monthName = "Декември";
-                    break;
-            }
+        res.data.forEach((e) => {
+          switch (e.month) {
+            case 1:
+              monthName = "Януари";
+              break;
+            case 2:
+              monthName = "Февруари";
+              break;
+            case 3:
+              monthName = "Март";
+              break;
+            case 4:
+              monthName = "Април";
+              break;
+            case 5:
+              monthName = "Май";
+              break;
+            case 6:
+              monthName = "Юни";
+              break;
+            case 7:
+              monthName = "Юли";
+              break;
+            case 8:
+              monthName = "Август";
+              break;
+            case 9:
+              monthName = "Септември";
+              break;
+            case 10:
+              monthName = "Октомври";
+              break;
+            case 11:
+              monthName = "Ноември";
+              break;
+            case 12:
+              monthName = "Декември";
+              break;
+          }
           months.push(monthName);
           valences.push(e.averageValence);
         });
@@ -105,7 +105,7 @@ const YearFeeling = () => {
             rank: index + 1,
           };
         });
-          setTracks(data.reverse());
+        setTracks(data.reverse());
       })
       .catch((err) => console.log(err));
   }, []);

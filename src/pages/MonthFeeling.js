@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
-import LineChart from "../components/feeling/LineChart";
+import LineChart from "../components/charts/LineChart";
 import Table from "../components/feeling/Table";
 import "../assets/css/feeling.css";
 import Footer from "../components/footer/Footer";
@@ -25,7 +25,7 @@ const MonthFeeling = () => {
             rank: index + 1,
           };
         });
-          setTracks(data.reverse());
+        setTracks(data.reverse());
 
         let names = [];
         let valences = [];
@@ -73,6 +73,7 @@ const MonthFeeling = () => {
       },
     ],
   });
+
   return (
     <>
       <Navigation />

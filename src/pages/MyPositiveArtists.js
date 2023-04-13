@@ -12,11 +12,27 @@ import { ReactComponent as ChevronRight } from "../assets/icons/chevron-right.sv
 import { ReactComponent as ChevronLeft } from "../assets/icons/chevron-left.svg";
 import axios from "axios";
 import { motion } from "framer-motion";
+import PieChart from "../components/charts/PieChart";
 
 const MyPositiveArtists = () => {
   const userID = localStorage.getItem("userID");
-
   const [artists, setArtists] = useState([]);
+
+  const [userData, setUserData] = useState({
+    labels: [],
+    datasets: [
+      {
+        label: "Позитивност",
+        data: [1, 2, 3, 4, 5],
+      },
+    ],
+    options: [
+      {
+        responsive: false,
+        maintainAspectRatio: false,
+      },
+    ],
+  });
 
   useEffect(() => {
     axios
@@ -29,7 +45,7 @@ const MyPositiveArtists = () => {
           };
         });
         setArtists(data);
-          console.log(data);
+        console.log(data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -75,6 +91,9 @@ const MyPositiveArtists = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 0.5 } }}
             exit={{ opacity: 0 }}>
+            <div className="chart-container">
+              <PieChart chartData={userData} />
+            </div>
             <table {...getTableProps()}>
               <thead>
                 {headerGroups.map((headerGroup) => (

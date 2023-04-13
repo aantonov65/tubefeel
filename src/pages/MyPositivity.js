@@ -8,11 +8,28 @@ import { baseURL } from "../api/config";
 import axios from "axios";
 import HeaderBreadcrumb from "../components/HeaderBreadcrumb";
 import { motion } from "framer-motion";
+import "../assets/css/positivity.css";
+import DoughnutChart from "../components/charts/DoughnutChart";
 
 const MyPositivity = () => {
   const userID = localStorage.getItem("userID");
-
   const [artists, setArtists] = useState([]);
+
+  const [userData, setUserData] = useState({
+    labels: [],
+    datasets: [
+      {
+        label: "Позитивност",
+        data: [1, 2, 3, 4, 5],
+      },
+    ],
+    options: [
+      {
+        responsive: false,
+        maintainAspectRatio: false,
+      },
+    ],
+  });
 
   useEffect(() => {
     axios
@@ -34,9 +51,6 @@ const MyPositivity = () => {
       { Header: "Място", accessor: "rank" },
       { Header: "Име", accessor: "name" },
       { Header: "Позитивност", accessor: "valence" },
-      /*{ Header: "Популярност", accessor: "popularity" },
-            { Header: "Последователи", accessor: "followers" },
-            { Header: "Вижте артиста отново", accessor: "artist" },*/
     ],
     []
   );
@@ -59,6 +73,9 @@ const MyPositivity = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 0.5 } }}
             exit={{ opacity: 0 }}>
+            <div className="chart-container">
+              <DoughnutChart chartData={userData} />
+            </div>
             <table {...getTableProps()}>
               <thead>
                 {headerGroups.map((headerGroup) => (

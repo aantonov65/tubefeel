@@ -1,0 +1,12 @@
+.artists .chart-container {
+  margin: auto;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 992px) {
+  .artists .chart-container {
+    height: 400px;
+  }
+}

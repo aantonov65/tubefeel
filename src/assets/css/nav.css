@@ -11,6 +11,10 @@ nav a.active {
   color: #dc3545 !important;
 }
 
+.positivity-tooltip .tippy-content {
+  font-size: 16px;
+}
+
 .dropdown-item.active,
 .dropdown-item:active {
   color: white !important;
@@ -44,4 +48,10 @@ nav a.active {
   border-top-right-radius: 0px !important;
   border-top-left-radius: 0px !important;
   left: -1px !important;
+}
+
+@media screen and (max-width: 1032px) {
+  nav .positivity-score {
+    display: none;
+  }
 }

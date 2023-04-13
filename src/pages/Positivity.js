@@ -8,9 +8,29 @@ import { baseURL } from "../api/config";
 import axios from "axios";
 import HeaderBreadcrumb from "../components/HeaderBreadcrumb";
 import { motion } from "framer-motion";
+import LineChart from "../components/charts/LineChart";
+import "../assets/css/positivity.css";
 
 const Positivity = () => {
   const [artists, setArtists] = useState([]);
+
+  const [userData, setUserData] = useState({
+    labels: [],
+    datasets: [
+      {
+        label: "Позитивност",
+        data: [],
+        backgroundColor: "#DC3545",
+        hoverBackgroundColor: "#bb2d3b",
+      },
+    ],
+    options: [
+      {
+        responsive: false,
+        maintainAspectRatio: false,
+      },
+    ],
+  });
 
   useEffect(() => {
     axios
@@ -32,9 +52,6 @@ const Positivity = () => {
       { Header: "Място", accessor: "rank" },
       { Header: "Име", accessor: "name" },
       { Header: "Позитивност", accessor: "valence" },
-      /*{ Header: "Популярност", accessor: "popularity" },
-            { Header: "Последователи", accessor: "followers" },
-            { Header: "Вижте артиста отново", accessor: "artist" },*/
     ],
     []
   );
@@ -57,6 +74,9 @@ const Positivity = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 0.5 } }}
             exit={{ opacity: 0 }}>
+            <div className="chart-container">
+              <LineChart chartData={userData} />
+            </div>
             <table {...getTableProps()}>
               <thead>
                 {headerGroups.map((headerGroup) => (

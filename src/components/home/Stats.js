@@ -27,10 +27,12 @@ const Stats = () => {
       setSongsListened(tracks);
     });
   }, []);
+
   const [songsListened, setSongsListened] = useState(0);
   const [artistsListened, setArtistsListened] = useState(0);
   const [users, setUsers] = useState(0);
   const [minutes, setMinutes] = useState(0);
+
   return (
     <section className="stats pb-5">
       <Container fluid>
