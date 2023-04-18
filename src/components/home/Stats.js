@@ -5,7 +5,7 @@ import { ReactComponent as MusicIcon } from "../../assets/icons/music-note-beame
 import { ReactComponent as MicIcon } from "../../assets/icons/mic-fill.svg";
 import { ReactComponent as ClockIcon } from "../../assets/icons/clock-fill.svg";
 import { ReactComponent as PeopleIcon } from "../../assets/icons/people-fill.svg";
-import { ReactComponent as SmileIcon } from "../../assets/icons/emoji-smile-fill.svg";
+import { ReactComponent as SmileIcon } from "../../assets/icons/emoji-smile-fill-red.svg";
 import { baseURL } from "../../api/config";
 import axios from "axios";
 
@@ -27,7 +27,7 @@ const Stats = () => {
       let tracks = res.data[0].tracks;
       setSongsListened(tracks);
     });
-      axios.get(baseURL + "/users/averageValence/").then((res) => {
+    axios.get(baseURL + "/users/averageValence/").then((res) => {
       let avg_valence = res.data[0].avg_valence;
       setAvgValence(avg_valence);
     });
@@ -42,8 +42,8 @@ const Stats = () => {
   return (
     <section className="stats pb-5">
       <Container fluid>
-        <Row className="pt-5 pb-3 px-4 d-flex">
-          <h2 className="text-center h2 stats__heading">
+        <Row className="pt-5 pb-3 px-5 d-flex justify-content-center">
+          <h2 className="text-center pb-3 h2 stats__heading">
             Статистики на всички потребители в TubeFeel
           </h2>
           <Stat

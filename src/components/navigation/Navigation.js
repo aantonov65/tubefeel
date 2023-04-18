@@ -16,12 +16,11 @@ const Navigation = () => {
   const [averagePositivity, setAveragePositivity] = useState("0.000");
   const navigate = useNavigate();
 
-    if (userID !== null) {
-        axios.get(baseURL + "/users/averageValence/" + userID)
-        .then((res) => {
-            setAveragePositivity(res.data[0].avg_valence);
-        })
-    } 
+  if (userID !== null) {
+    axios.get(baseURL + "/users/averageValence/" + userID).then((res) => {
+      setAveragePositivity(res.data[0].avg_valence);
+    });
+  }
 
   useEffect(() => {
     if (typeof userID == "object") {
@@ -46,15 +45,18 @@ const Navigation = () => {
         </Navbar.Collapse>
       </Container>
 
-      {userID ? <Tippy content="Тази стойност е средностатистическата позитивност за всички песни слушани от Вас. Позитивността е колко положителна е дадена песен чрез число между 0 и 1. Колкото тя е по-близо до 1, толкова по-позитивно е чувството на дадената песен." className="positivity-tooltip">
-        <span
-          id="positivity-score"
-          className="positivity-score bg-danger me-4 shadow-sm p-1 px-2 rounded position-absolute end-0 border border-2 border-danger text-white">
-          <SmileIcon className="me-2" />
-          { averagePositivity }
-        </span>
-      </Tippy> : null}
-
+      {userID ? (
+        <Tippy
+          content="Тази стойност е средностатистическата позитивност за всички песни слушани от Вас. Позитивността е колко положителна е дадена песен чрез число между 0 и 1. Колкото тя е по-близо до 1, толкова по-позитивно е чувството на дадената песен."
+          className="positivity-tooltip">
+          <span
+            id="positivity-score"
+            className="positivity-score bg-danger me-4 shadow-sm p-1 px-2 rounded position-absolute end-0 border border-2 border-danger text-white">
+            <SmileIcon className="me-2" />
+            {averagePositivity}
+          </span>
+        </Tippy>
+      ) : null}
     </Navbar>
   );
 };
