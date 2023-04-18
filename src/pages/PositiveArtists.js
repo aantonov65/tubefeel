@@ -12,39 +12,61 @@ import { ReactComponent as ChevronRight } from "../assets/icons/chevron-right.sv
 import { ReactComponent as ChevronLeft } from "../assets/icons/chevron-left.svg";
 import axios from "axios";
 import { motion } from "framer-motion";
-import PieChart from "../components/charts/PieChart";
+import BarChart from "../components/charts/BarChart";
 
 const PositiveArtists = () => {
   const [artists, setArtists] = useState([]);
 
-  const [userData, setUserData] = useState({
-    labels: [],
-    datasets: [
-      {
-        label: "Позитивност",
-        data: [1, 2, 3, 4, 5],
-      },
-    ],
-    options: [
-      {
-        responsive: false,
-        maintainAspectRatio: false,
-      },
-    ],
-  });
+    const [userData, setUserData] = useState({
+        labels: [],
+        datasets: [
+            {
+                label: "Средна позитивност",
+                data: [],
+                backgroundColor: "#DC3545",
+                hoverBackgroundColor: "#bb2d3b",
+            },
+        ],
+        options: [
+            {
+                responsive: true,
+                maintainAspectRatio: false,
+            },
+        ],
+    });
 
   useEffect(() => {
+    let names = [];
+    let valence = [];
     axios
       .get(baseURL + "/users/positiveArtists/")
       .then((res) => {
-        const data = res.data.map((artist, index) => {
+          const data = res.data.map((artist, index) => {
+          names.push(artist.name);
+              valence.push(artist.avg_valence);
           return {
             ...artist,
             rank: index + 1,
           };
         });
         setArtists(data);
-        console.log(data);
+          setUserData({
+              labels: names,
+              datasets: [
+                  {
+                      label: "Средна позитивност",
+                      data: valence,
+                      backgroundColor: "#DC3545",
+                      hoverBackgroundColor: "#bb2d3b",
+                  },
+              ],
+              options: [
+                  {
+                      responsive: true,
+                      maintainAspectRatio: false,
+                  },
+              ],
+          });
       })
       .catch((err) => console.log(err));
   }, []);
@@ -54,9 +76,6 @@ const PositiveArtists = () => {
       { Header: "Място", accessor: "rank" },
       { Header: "Име", accessor: "name" },
       { Header: "Средна позитивност", accessor: "avg_valence" },
-      /*{ Header: "Популярност", accessor: "popularity" },
-            { Header: "Последователи", accessor: "followers" },
-            { Header: "Вижте артиста отново", accessor: "artist" },*/
     ],
     []
   );
@@ -82,7 +101,7 @@ const PositiveArtists = () => {
         <Header
           title="Питате се кой е най-позитивният артист слушан в нашата система?"
           desc="Тук ще видите таблично представена статистика на двайсетте най-позитивни артисти слушани от всички потребители на нашата система."
-          breadcrumb={<HeaderBreadcrumb page="Артисти" />}
+          breadcrumb={<HeaderBreadcrumb page="TubeFeel позитивни артисти" />}
         />
         <Container fluid>
           <motion.div
@@ -91,7 +110,7 @@ const PositiveArtists = () => {
             animate={{ opacity: 1, transition: { duration: 0.5 } }}
             exit={{ opacity: 0 }}>
             <div className="chart-container">
-              <PieChart chartData={userData} />
+              <BarChart chartData={userData} />
             </div>
             <table {...getTableProps()}>
               <thead>

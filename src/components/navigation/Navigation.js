@@ -1,17 +1,27 @@
 import logo from "../../assets/images/logo.png";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import NavigationLinks from "./NavigationLinks";
 import "../../assets/css/nav.css";
 import { useNavigate } from "react-router-dom";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import { ReactComponent as SmileIcon } from "../../assets/icons/emoji-smile.svg";
+import { baseURL } from "../../api/config";
+import axios from "axios";
 
 const Navigation = () => {
   const userID = localStorage.getItem("userID");
+  const [averagePositivity, setAveragePositivity] = useState("0.000");
   const navigate = useNavigate();
+
+    if (userID !== null) {
+        axios.get(baseURL + "/user/averageValence/" + userID)
+        .then((res) => {
+            setAveragePositivity(res.data[0].avg_valence);
+        })
+    } 
 
   useEffect(() => {
     if (typeof userID == "object") {
@@ -35,14 +45,16 @@ const Navigation = () => {
           {userID ? <NavigationLinks /> : null}
         </Navbar.Collapse>
       </Container>
-      <Tippy content="Средна позитивност" className="positivity-tooltip">
+
+      {userID ? <Tippy content="Тази стойност е средностатистическата позитивност за всички песни слушани от Вас. Позитивността е колко положителна е дадена песен чрез число между 0 и 1. Колкото тя е по-близо до 1, толкова по-позитивно е чувството на дадената песен." className="positivity-tooltip">
         <span
           id="positivity-score"
           className="positivity-score bg-danger me-4 shadow-sm p-1 px-2 rounded position-absolute end-0 border border-2 border-danger text-white">
           <SmileIcon className="me-2" />
-          8.23
+          { averagePositivity }
         </span>
-      </Tippy>
+      </Tippy> : null}
+
     </Navbar>
   );
 };

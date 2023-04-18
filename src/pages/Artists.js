@@ -12,7 +12,7 @@ import { ReactComponent as ChevronRight } from "../assets/icons/chevron-right.sv
 import { ReactComponent as ChevronLeft } from "../assets/icons/chevron-left.svg";
 import axios from "axios";
 import { motion } from "framer-motion";
-import PieChart from "../components/charts/PieChart";
+import DoughnutChart from "../components/charts/DoughnutChart";
 
 const Artists = () => {
   const [artists, setArtists] = useState([]);
@@ -34,16 +34,35 @@ const Artists = () => {
   });
 
   useEffect(() => {
+      let chartNames = [];
+      let chartListens = [];
     axios
       .get(baseURL + "/users/topArtists/")
       .then((res) => {
         const data = res.data.map((artist, index) => {
+            chartNames.push(artist.name);
+            chartListens.push(artist.artistListens);
           return {
             ...artist,
             rank: index + 1,
           };
         });
-        setArtists(data);
+          setArtists(data);
+          setUserData({
+              labels: chartNames,
+              datasets: [
+                  {
+                      label: "Слушани песни",
+                      data: chartListens,
+                  },
+              ],
+              options: [
+                  {
+                      responsive: false,
+                      maintainAspectRatio: false,
+                  },
+              ],
+          })
       })
       .catch((err) => console.log(err));
   }, []);
@@ -81,7 +100,7 @@ const Artists = () => {
         <Header
           title="Кои са най-слушаните артисти в нашата система?"
           desc="Тук ще видите таблично представена статистика на десетте най-слушани певци и състави в цялата ни система."
-          breadcrumb={<HeaderBreadcrumb page="Артисти" />}
+          breadcrumb={<HeaderBreadcrumb page="TubeFeel Топ артисти" />}
         />
         <Container fluid>
           <motion.div
@@ -90,7 +109,7 @@ const Artists = () => {
             animate={{ opacity: 1, transition: { duration: 0.5 } }}
             exit={{ opacity: 0 }}>
             <div className="chart-container">
-              <PieChart chartData={userData} />
+              <DoughnutChart chartData={userData} />
             </div>
             <table {...getTableProps()}>
               <thead>

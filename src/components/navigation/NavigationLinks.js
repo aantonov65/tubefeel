@@ -11,6 +11,7 @@ const NavigationLinks = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("userID");
+    localStorage.removeItem("avg_user_valence");
     if (location.pathname === "/") {
       window.location.href = window.location.href;
     } else {
@@ -41,7 +42,6 @@ const NavigationLinks = () => {
             to="/tubefeel-top-ten">
             TubeFeel Топ 10
           </NavDropdown.Item>
-          <NavDropdown.Divider />
           <NavDropdown.Item
             className="dropdown-item-custom"
             as={NavLink}

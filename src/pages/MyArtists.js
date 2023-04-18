@@ -12,14 +12,14 @@ import { ReactComponent as ChevronRight } from "../assets/icons/chevron-right.sv
 import { ReactComponent as ChevronLeft } from "../assets/icons/chevron-left.svg";
 import axios from "axios";
 import { motion } from "framer-motion";
-import PieChart from "../components/charts/PieChart";
+import DoughnutChart from "../components/charts/DoughnutChart";
 
 const MyArtists = () => {
   const userID = localStorage.getItem("userID");
   const [artists, setArtists] = useState([]);
 
   const [userData, setUserData] = useState({
-    labels: [],
+    labels: ["gosho ot pochivka", "kanye", "obama", "Veselin Marinov", "Future"],
     datasets: [
       {
         label: "Позитивност",
@@ -35,16 +35,35 @@ const MyArtists = () => {
   });
 
   useEffect(() => {
+      let chartNames = [];
+      let chartListens = [];
     axios
       .get(baseURL + "/users/topArtists/" + userID)
       .then((res) => {
         const data = res.data.map((artist, index) => {
+            chartNames.push(artist.name);
+            chartListens.push(artist.artistListens);
           return {
             ...artist,
             rank: index + 1,
           };
         });
         setArtists(data);
+          setUserData({
+              labels: chartNames,
+              datasets: [
+                  {
+                      label: "Слушани песни",
+                      data: chartListens,
+                  },
+              ],
+              options: [
+                  {
+                      responsive: false,
+                      maintainAspectRatio: false,
+                  },
+              ],
+          })
       })
       .catch((err) => console.log(err));
   }, []);
@@ -79,7 +98,7 @@ const MyArtists = () => {
         <Header
           title="Питате се кой е Вашият любим певец или състав?"
           desc="Тук ще видите таблично представена статистика на десетте най-слушани от Вас певци и състави."
-          breadcrumb={<HeaderBreadcrumb page="Артисти" />}
+          breadcrumb={<HeaderBreadcrumb page="Моите Топ артисти" />}
         />
         <Container fluid>
           <motion.div
@@ -88,7 +107,7 @@ const MyArtists = () => {
             animate={{ opacity: 1, transition: { duration: 0.5 } }}
             exit={{ opacity: 0 }}>
             <div className="chart-container">
-              <PieChart chartData={userData} />
+              <DoughnutChart chartData={userData} />
             </div>
             <table {...getTableProps()}>
               <thead>
