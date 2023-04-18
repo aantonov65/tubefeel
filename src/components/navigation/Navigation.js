@@ -17,7 +17,7 @@ const Navigation = () => {
   const navigate = useNavigate();
 
     if (userID !== null) {
-        axios.get(baseURL + "/user/averageValence/" + userID)
+        axios.get(baseURL + "/users/averageValence/" + userID)
         .then((res) => {
             setAveragePositivity(res.data[0].avg_valence);
         })

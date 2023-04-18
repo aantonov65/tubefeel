@@ -5,6 +5,7 @@ import { ReactComponent as MusicIcon } from "../../assets/icons/music-note-beame
 import { ReactComponent as MicIcon } from "../../assets/icons/mic-fill.svg";
 import { ReactComponent as ClockIcon } from "../../assets/icons/clock-fill.svg";
 import { ReactComponent as PeopleIcon } from "../../assets/icons/people-fill.svg";
+import { ReactComponent as SmileIcon } from "../../assets/icons/emoji-smile-fill.svg";
 import { baseURL } from "../../api/config";
 import axios from "axios";
 
@@ -26,12 +27,17 @@ const Stats = () => {
       let tracks = res.data[0].tracks;
       setSongsListened(tracks);
     });
+      axios.get(baseURL + "/users/averageValence/").then((res) => {
+      let avg_valence = res.data[0].avg_valence;
+      setAvgValence(avg_valence);
+    });
   }, []);
 
   const [songsListened, setSongsListened] = useState(0);
   const [artistsListened, setArtistsListened] = useState(0);
   const [users, setUsers] = useState(0);
   const [minutes, setMinutes] = useState(0);
+  const [avgValence, setAvgValence] = useState(0);
 
   return (
     <section className="stats pb-5">
@@ -59,6 +65,11 @@ const Stats = () => {
             title="Минути в системата"
             count={minutes}
             icon={<ClockIcon className="stat__icon" />}
+          />
+          <Stat
+            title="Средна позитивност"
+            count={avgValence}
+            icon={<SmileIcon className="stat__icon" />}
           />
         </Row>
       </Container>
