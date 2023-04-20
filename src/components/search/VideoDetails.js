@@ -14,7 +14,8 @@ const VideoDetails = ({ videoId, title, desc, channel }) => {
   const navigate = useNavigate();
   const userID = localStorage.getItem('userID');
     const [SYToken, setSYToken] = useState("");
-    const [popupOpen, setPopupOpen] = useState(false);
+    const [successPopupOpen, setSuccessPopupOpen] = useState(false);
+    const [errorPopupOpen, setErrorPopupOpen] = useState(false);
 
   useEffect(() => {
     const spotifyToken = (async function spotifyAuthenticate() {
@@ -124,18 +125,25 @@ const VideoDetails = ({ videoId, title, desc, channel }) => {
               albumName: albumName,
               albumID: albumID,
               albumURI: albumURI,
+            }).then((res) => {
+                if (res.status == 200) {
+                    setSuccessPopupOpen(o => !o);
+                }
+            }).catch((err) => {
+                if (err.response.status == 503) {
+                    setErrorPopupOpen(o => !o);
+                }
             });
           });
       })
       .catch(function (error) {
         console.log(error);
       });
-
-      setPopupOpen(o => !o);
   };
 
 
-    const closeModal = () => setPopupOpen(false);
+    const closeSuccess = () => setSuccessPopupOpen(false);
+    const closeError = () => setErrorPopupOpen(false);
 
   if (!videoId) {
     return;
@@ -155,10 +163,10 @@ const VideoDetails = ({ videoId, title, desc, channel }) => {
             Добавете към вашата история
         </button>
         <Popup
-          open={popupOpen} 
+          open={successPopupOpen} 
           modal
           nested
-          onClose={closeModal}>
+          onClose={closeSuccess}>
           {(close) => (
             <div className="py-2 h4 text-center rounded">
               <div className="content mt-3">
@@ -168,6 +176,25 @@ const VideoDetails = ({ videoId, title, desc, channel }) => {
                 className="to-history btn btn-danger btn-md h3 text-white mt-3 px-4 d-block mx-auto"
                 onClick={() => navigate("/history")}>
                 Към историята
+              </button>
+              <XIcon className="close-icon" onClick={close} />
+            </div>
+          )}
+        </Popup>
+        <Popup
+          open={errorPopupOpen} 
+          modal
+          nested
+          onClose={closeError}>
+          {(close) => (
+            <div className="py-2 h4 text-center rounded">
+              <div className="content mt-3">
+                Не можете да добавяте тази песен повече днес, моля добавете друга песен!
+              </div>
+              <button
+                className="to-history btn btn-danger btn-md h3 text-white mt-3 px-4 d-block mx-auto"
+                onClick={closeError}>
+                Добави друга песен
               </button>
               <XIcon className="close-icon" onClick={close} />
             </div>

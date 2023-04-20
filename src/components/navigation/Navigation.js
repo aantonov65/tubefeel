@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import NavigationLinks from "./NavigationLinks";
 import "../../assets/css/nav.css";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import { ReactComponent as SmileIcon } from "../../assets/icons/emoji-smile.svg";
@@ -15,10 +16,22 @@ const Navigation = () => {
   const userID = localStorage.getItem("userID");
   const [averagePositivity, setAveragePositivity] = useState("0.000");
   const navigate = useNavigate();
+  const location = useLocation();
+
 
   if (userID !== null) {
     axios.get(baseURL + "/users/averageValence/" + userID).then((res) => {
-      setAveragePositivity(res.data[0].avg_valence);
+        setAveragePositivity(res.data[0].avg_valence);
+    }).catch((err) => {
+        if (err.response.status == 403) {
+            localStorage.removeItem("userID");
+            localStorage.removeItem("avg_user_valence");
+            if (location.pathname !== "/") {
+                navigate("/");
+            } else {
+                window.location.href = window.location.href;
+            } 
+        }
     });
   }
 

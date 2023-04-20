@@ -16,7 +16,7 @@ const Artists = () => {
 
 
     const handleDelete = (row) => {
-        axios.post(baseURL + "users/historyDelete", {
+        axios.post(baseURL + "/users/historyDelete", {
             listenID: row.original.listenID,
             userID: userID
         }).then(() => {
